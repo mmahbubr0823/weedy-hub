@@ -1,24 +1,56 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/UswAuth/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+    const handleSignOut = () => {
+        logOut()
+            .then(result => {
+                toast.success('User successfully signed out')
+
+            })
+            .catch(err => {
+                toast.error('Something went wrong')
+            })
+    }
+    console.log(user);
     const navItems = <>
 
         <li className="lg:mr-0"><NavLink to="/">Home</NavLink></li>
         <li className="lg:mr-0"><NavLink to="/availableFoods">Biodatas</NavLink></li>
         <li className="lg:mr-0"><NavLink to="/addFood"> About Us</NavLink></li>
         <li className="lg:mr-0"><NavLink to="/manageFood">Contact
-Us</NavLink></li>
+            Us</NavLink></li>
         <li className="lg:mr-0 mb-2 lg:mb-0"><NavLink to="/signUp">Sign Up</NavLink></li>
-        {/* {
+        {
             user ?
-                <div>
-                    <button onClick={handleLogOut} className="ml-3">Log out</button>
+
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={handleSignOut}
+                        className="middle none center hidden rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+                        type="button"
+                        data-ripple-light="true"
+                    >
+                        <span>Sign Out</span>
+                    </button>
+                   <div>
+                   <img className="w-[40px] rounded-full" src={user.photoURL} alt="" />
+                   </div>
                 </div>
+
                 :
-                <div>
-                    <Link className="ml-1" to="/login">Login</Link>
-                </div>
-        } */}
+                <NavLink to='/login'>
+                    <button
+                        className="middle none center hidden rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+                        type="button"
+                        data-ripple-light="true"
+                    >
+                        <span>Sign In</span>
+                    </button>
+                </NavLink>
+        }
     </>
     return (
         <div>
@@ -32,21 +64,13 @@ Us</NavLink></li>
                             <span className="uppercase text-3xl font-bold">We<span className="text-[#d63939]">dd</span>y Hub</span>
                         </a>
                         <div>
-                        <ul className="hidden items-center gap-6 lg:flex">
-                            {
-                                navItems
-                            }
-                           <NavLink to='/login'>
-                           <button
-                            className="middle none center hidden rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
-                            type="button"
-                            data-ripple-light="true"
-                        >
-                            <span>Sign In</span>
-                        </button>
-                           </NavLink>
-                        </ul>
-                        
+                            <ul className="hidden items-center gap-6 lg:flex">
+                                {
+                                    navItems
+                                }
+
+                            </ul>
+
                         </div>
                         <button
                             className="middle none relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] rounded-lg text-center font-sans text-xs font-medium uppercase text-blue-gray-500 transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"

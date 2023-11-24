@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/UswAuth/useAuth";
 import Container from "../../Layouts/Container/Container";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
     const { logInUser } = useAuth();
@@ -15,7 +16,7 @@ const Login = () => {
         if (!(/^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/).test(password)) {
             return toast.error('Your password should contain at least one upperCase, one special character and more than 6')
         }
-        // creating user 
+        // login user 
         logInUser(email, password)
             .then(result => {
                if (result) {
@@ -28,7 +29,6 @@ const Login = () => {
                     toast.error('Your credentials do not match.')
                 }
             })
-        console.log(email, password)
     }
     return (
         <Container>
@@ -113,6 +113,7 @@ const Login = () => {
                     <input
                         className=" mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="submit" value="Sign Up" />
+                        <SocialLogin></SocialLogin>
 
                     <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         New here?

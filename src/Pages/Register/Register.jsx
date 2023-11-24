@@ -24,7 +24,6 @@ const Register = () => {
             .catch(err => {
                 toast.error(err.message)
             })
-        console.log(email, password)
     }
     return (
         <Container>
