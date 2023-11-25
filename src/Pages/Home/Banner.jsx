@@ -4,7 +4,7 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 const Banner = () => {
     return (
-        <div>
+        <div className='my-8 rounded-lg'>
             <Carousel className="rounded-xl">
                 
                 
@@ -12,9 +12,9 @@ const Banner = () => {
                     <img
                         src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
                         alt="image 3"
-                        className="w-full h-[600px]"
+                        className="w-full rounded-lg h-[600px]"
                     />
-                    <div className="absolute inset-0 grid h-full w-full items-end bg-black/40">
+                    <div className="absolute rounded-lg inset-0 grid h-full w-full items-end bg-black/40">
                         <div className="w-3/4 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
                             <Typography
                                 variant="h1"
