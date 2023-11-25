@@ -14,7 +14,6 @@ const Navbar = () => {
                 toast.error('Something went wrong')
             })
     }
-    console.log(user);
     const navItems = <>
 
         <li className="lg:mr-0"><NavLink to="/">Home</NavLink></li>
