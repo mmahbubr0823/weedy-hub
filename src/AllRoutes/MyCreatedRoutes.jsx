@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import MemberDetails from "../Pages/MemberDetails/MemberDetails";
 import PrivateRoute from "./PrivateRoute";
 import Page404 from "../Pages/Page404/Page404";
+import AllBioData from "../Pages/AllBioData/AllBioData";
 
 const MyCreatedRoutes = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const MyCreatedRoutes = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/allBioData',
+                element: <AllBioData></AllBioData>
             },
             {
                 path: '/members/:id',

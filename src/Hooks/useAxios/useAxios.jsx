@@ -6,7 +6,7 @@ const fetch = axios.create({
 
 const useAxios = () => {
     return fetch;
-        
+
 };
 
 export default useAxios;
