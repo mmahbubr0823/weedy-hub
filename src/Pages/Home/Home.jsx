@@ -2,7 +2,7 @@ import Container from "../../Layouts/Container/Container";
 import Title from "../../Shared/Title/Title";
 import Banner from "./Banner";
 import PremiumCards from "./PremiumCards/PremiumCards";
-import SuccessCounter from "./SuccessCounter";
+import SuccessStory from "./SuccessStory";
 import WorkingMethods from "./WorkingMethods";
 const Home = () => {
     return (
@@ -11,7 +11,7 @@ const Home = () => {
            <Banner></Banner>
            <PremiumCards></PremiumCards>
            <WorkingMethods></WorkingMethods>
-           {/* <SuccessCounter></SuccessCounter> */}
+           <SuccessStory></SuccessStory>
         </Container>
     );
 };

@@ -1,6 +1,7 @@
 import Container from '../../Layouts/Container/Container';
 import { CgProfile } from "react-icons/cg";
-import { ImManWoman } from "react-icons/im";
+import { BiMale } from "react-icons/bi";
+import { FaFemale } from "react-icons/fa";
 import { GiLovers } from "react-icons/gi";
 import { useEffect, useState } from 'react';
 const SuccessCounter = ({data}) => {
@@ -30,11 +31,11 @@ const SuccessCounter = ({data}) => {
                         </div>
                         <div className=" border-l-4 flex gap-4 items-center px-20  py-16">
                             <p className="text-2xl">Total Male Partner:{male.length}</p>
-                            <p><span><ImManWoman className="text-4xl" /></span></p>
+                            <p><span><BiMale className="text-4xl" /></span></p>
                         </div>
                         <div className="border-r-4 flex gap-4 items-center px-20 py-16">
                             <p className="text-2xl">Total Female Partner:{feMale.length}</p>
-                            <p><span><GiLovers className="text-4xl" /></span></p>
+                            <p><span><FaFemale className="text-4xl" /></span></p>
                         </div>
                         <div className="border-t-4 flex gap-4 items-center px-20 py-16">
                             <p className="text-2xl">Total Marriage:{Math.round(members.length*.6)}</p>
