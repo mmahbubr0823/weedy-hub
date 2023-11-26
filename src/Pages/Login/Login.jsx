@@ -1,13 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import Container from "../../Layouts/Container/Container";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
+import Title from "../../Shared/Title/Title";
 
 const Login = () => {
     const { logInUser } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         const email = data.email;
@@ -21,7 +23,7 @@ const Login = () => {
             .then(result => {
                if (result) {
                 toast.success('User successfully logged in')
-                navigate('/')
+                navigate(Location.state ? Location.state : '/')
                }
             })
             .catch(err => {
@@ -32,6 +34,7 @@ const Login = () => {
     }
     return (
         <Container>
+            <Title title={'Login'}></Title>
             <div className="relative my-10 bg-[#f0e4fa] flex justify-between flex-col md:flex-row gap-5 rounded-xl bg-transparent p-8 bg-clip-border text-gray-700 shadow-none">
                 <div>
                     <img src="./login.svg" alt="" />

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 
@@ -10,12 +9,12 @@ const Banner = () => {
                 
                 <div className="relative">
                     <img
-                        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+                        src="https://i.ibb.co/4Wn7VvG/beautiful-woman-long-red-dress-walks-around-city-with-her-husband.jpg"
                         alt="image 3"
                         className="w-full rounded-lg h-[600px]"
                     />
-                    <div className="absolute rounded-lg inset-0 grid h-full w-full items-end bg-black/40">
-                        <div className="w-3/4 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
+                    <div className="absolute rounded-lg inset-0 grid h-full w-full items-end bg-black/20">
+                        <div className="w-3/4 absolute  top-10 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
                             <Typography
                                 variant="h1"
                                 color="white"
@@ -26,7 +25,7 @@ const Banner = () => {
                             <Typography
                                 variant="lead"
                                 color="white"
-                                className="mb-12 opacity-80"
+                                className="mb-12 text-sm opacity-80"
                             >
                                 Embrace Love's Journey: Your Perfect Match Awaits invites users to embark on the exciting adventure of finding their life partner. The title emphasizes the idea of embracing the process of discovering love, suggesting that within the platform, users will find someone who perfectly complements their journey, creating a fulfilling and lasting connection.
                             </Typography>

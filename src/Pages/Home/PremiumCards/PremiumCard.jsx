@@ -1,6 +1,6 @@
 import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 const PremiumCard = ({ member }) => {
-    console.log(...Object.keys(member));
 const {_id, BiodataId, BiodataType, ProfileImage, PermanentDivisionName, Age, Occupation} = member;
 
     return (
@@ -22,7 +22,9 @@ const {_id, BiodataId, BiodataType, ProfileImage, PermanentDivisionName, Age, Oc
                 </div>
                 </div>
                <div className="flex mb-2 justify-center">
+               <Link to={`/members/${_id}`}>
                <Button className="bg-[#ec2dc9]" variant="outlined">View Profile</Button>
+               </Link>
                </div>
             </div>
         </div>

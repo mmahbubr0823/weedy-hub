@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/UswAuth/useAuth';
+import Title from '../../Shared/Title/Title';
 
 const Register = () => {
     const { createUser } = useAuth();
@@ -27,6 +28,7 @@ const Register = () => {
     }
     return (
         <Container>
+            <Title title={'Sign Up'}></Title>
             <div className="relative my-10 bg-gray-100 flex justify-between flex-col md:flex-row gap-5 rounded-xl bg-transparent p-8 bg-clip-border text-gray-700 shadow-none">
                 <div>
                     <img src="./login.svg" alt="" />

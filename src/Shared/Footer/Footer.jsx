@@ -8,11 +8,11 @@ const Footer = () => {
                     <div className="flex items-center justify-center gap-5">
                         <div>
                             <div className="">
-                                <img className="w-28 h-28 rounded-md" src="https://i.ibb.co/dGphmgc/6895997.jpg" alt="" />
-                                <a className=" normal-case lg:text-xl xl:text-4xl font-semibold">Feed The <span className="text-[#f1aaaa]">Hunger</span></a>
+                                <img className="w-28 h-28 rounded-md" src="https://i.ibb.co/1m6Kgjy/groom-putting-ring-bride-s-finger.jpg" alt="" />
+                                <a className=" normal-case lg:text-xl xl:text-4xl font-semibold">WEDDY  <span className="text-[#f1aaaa]">HUB</span></a>
                             </div>
-                            <p>Provides Foods since 2000</p>
-                            <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                            <p>Embrace Love's Journey: Your Perfect Match Awaits</p>
+                            <p>Copyright © 2023 - All right reserved by weddy hub ltd.</p>
                         </div>
                         <div className="mr-5">
                             <header className="text-xl font-bold my-5">Address</header>
