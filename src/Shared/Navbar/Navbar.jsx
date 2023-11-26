@@ -16,27 +16,27 @@ const Navbar = () => {
     }
     const navItems = <>
 
-        <li className="lg:mr-0"><NavLink to="/">Home</NavLink></li>
-        <li className="lg:mr-0"><NavLink to="/allBioData">Biodatas</NavLink></li>
-        <li className="lg:mr-0"><NavLink to="/addFood"> About Us</NavLink></li>
-        <li className="lg:mr-0"><NavLink to="/manageFood">Contact
+        <li ><NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>Home</NavLink></li>
+        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/allBioData">Biodatas</NavLink></li>
+        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/addFood"> About Us</NavLink></li>
+        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/manageFood">Contact
             Us</NavLink></li>
-        <li className="lg:mr-0 mb-2 lg:mb-0"><NavLink to="/signUp">Sign Up</NavLink></li>
+        <li className="lg:mr-0 mb-2 lg:mb-0"><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/signUp">Sign Up</NavLink></li>
         {
             user ?
 
                 <div className="flex items-center gap-3">
                     <button
                         onClick={handleSignOut}
-                        className="middle none center hidden rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+                        className="middle  none center hidden rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
                         type="button"
                         data-ripple-light="true"
                     >
                         <span>Sign Out</span>
                     </button>
-                   <div>
-                   <img className="w-[40px] rounded-full" src={user.photoURL} alt="" />
-                   </div>
+                    <div>
+                        <img className="w-[40px] rounded-full" src={user.photoURL} alt="" />
+                    </div>
                 </div>
 
                 :
