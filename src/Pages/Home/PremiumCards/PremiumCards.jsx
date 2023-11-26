@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import PremiumCard from './PremiumCard';
+import SuccessCounter from '../SuccessCounter';
 
 const PremiumCards = () => {
     const axios = useAxios();
@@ -35,6 +36,7 @@ const PremiumCards = () => {
                 </PremiumCard>)
             }
         </div>
+        <SuccessCounter data ={data}></SuccessCounter>
        </div>
     );
 };
