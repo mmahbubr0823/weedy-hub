@@ -25,6 +25,7 @@ const PremiumCards = () => {
                 loadedData.map(member =><PremiumCard
                 key={member.BiodataId}
                 member={member}
+                loadedData={loadedData}
                 >
                 </PremiumCard>)
             }

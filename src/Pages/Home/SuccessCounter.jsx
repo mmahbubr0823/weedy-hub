@@ -8,7 +8,6 @@ const SuccessCounter = ({data}) => {
     const members = data;
     const [male, setMale]= useState([]);
     const [feMale, setFemale]= useState([]);
-    console.log(data);
     useEffect(()=>{
         const filteredMale = members?.filter((member) =>member.BiodataType === 'Male');
         setMale(filteredMale)

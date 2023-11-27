@@ -1,7 +1,9 @@
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-const PremiumCard = ({ member }) => {
+const PremiumCard = ({ member, loadedData }) => {
 const {_id, BiodataId, BiodataType, ProfileImage, PermanentDivisionName, Age, Occupation} = member;
+const id = loadedData.length + 1
+
 
     return (
         <div>
@@ -11,7 +13,7 @@ const {_id, BiodataId, BiodataType, ProfileImage, PermanentDivisionName, Age, Oc
                 </div>
                 <div className="flex flex-grow gap-2 text-left">
                 <div className="p-6">
-                    <h1> <span className="font-bold"> BiodataId: </span>{BiodataId}</h1>
+                    <h1> <span className="font-bold"> BiodataId: </span>{BiodataId || id}</h1>
                     <h1><span className="font-bold"> BiodataType: </span>{BiodataType}</h1>
                     <h1><span className="font-bold"> Division Name: </span>{PermanentDivisionName}</h1>
                 </div>
