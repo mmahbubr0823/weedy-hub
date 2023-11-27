@@ -7,6 +7,8 @@ import MemberDetails from "../Pages/MemberDetails/MemberDetails";
 import PrivateRoute from "./PrivateRoute";
 import Page404 from "../Pages/Page404/Page404";
 import AllBioData from "../Pages/AllBioData/AllBioData";
+import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
+import CreateBiodata from "../Pages/Dashboard/DashboardPages/CreateBiodata/CreateBiodata";
 
 const MyCreatedRoutes = createBrowserRouter([
     {
@@ -36,6 +38,18 @@ const MyCreatedRoutes = createBrowserRouter([
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/members/${params.id}`)
             },
+        ]
+    },
+    {
+        path:'/dashboard',
+        element: <PrivateRoute>
+            <DashboardLayout></DashboardLayout>
+        </PrivateRoute>,
+        children:[
+            {
+                path:'/dashboard/createBiodata',
+                element: <CreateBiodata></CreateBiodata>
+            }
         ]
     },
     {

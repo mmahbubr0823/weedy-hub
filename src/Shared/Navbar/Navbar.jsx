@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/UswAuth/useAuth";
+import useLogOut from "../../Hooks/useLogOut/useLogOut";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut} = useAuth();
     const handleSignOut = () => {
         logOut()
             .then(result => {
@@ -14,6 +15,10 @@ const Navbar = () => {
                 toast.error('Something went wrong')
             })
     }
+    // const logout = useLogOut();
+    // const handleLogOut = ()=>{
+    //     return logout
+    // }
     const navItems = <>
 
         <li ><NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>Home</NavLink></li>
@@ -26,6 +31,7 @@ const Navbar = () => {
             user ?
 
                 <div className="flex items-center gap-3">
+                    <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/dashboard">Dashboard</NavLink></li>
                     <button
                         onClick={handleSignOut}
                         className="middle  none center hidden rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
