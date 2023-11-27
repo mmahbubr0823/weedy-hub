@@ -9,7 +9,7 @@ const DashboardLayout = () => {
         <div>
            <Navbar></Navbar>
            <Container>
-           <div className='min-h-[80vh] grid grid-cols-10'>
+           <div className='min-h-[80vh] grid grid-cols-10 gap-3'>
             <div className='col-span-2'>
                    <UserDashboard></UserDashboard>
             </div>

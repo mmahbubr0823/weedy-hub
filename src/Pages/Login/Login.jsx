@@ -9,7 +9,6 @@ import Title from "../../Shared/Title/Title";
 const Login = () => {
     const { logInUser } = useAuth();
     const navigate = useNavigate();
-    const location = useLocation();
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         const email = data.email;
