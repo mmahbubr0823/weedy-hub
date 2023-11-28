@@ -9,6 +9,7 @@ import Page404 from "../Pages/Page404/Page404";
 import AllBioData from "../Pages/AllBioData/AllBioData";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
 import CreateBiodata from "../Pages/Dashboard/DashboardPages/CreateBiodata/CreateBiodata";
+import ViewBioData from "../Pages/Dashboard/DashboardPages/ViewBioData/ViewBioData";
 
 const MyCreatedRoutes = createBrowserRouter([
     {
@@ -49,7 +50,11 @@ const MyCreatedRoutes = createBrowserRouter([
             {
                 path:'/dashboard/createBiodata',
                 element: <CreateBiodata></CreateBiodata>
-            }
+            },
+            {
+                path:'/dashboard/viewBioData',
+                element: <ViewBioData></ViewBioData>
+            },
         ]
     },
     {

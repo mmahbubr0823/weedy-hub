@@ -2,7 +2,7 @@ import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 const PremiumCard = ({ member, loadedData }) => {
 const {_id, BiodataId, BiodataType, ProfileImage, PermanentDivisionName, Age, Occupation} = member;
-const id = loadedData.length + 1
+const id = loadedData.length
 
 
     return (

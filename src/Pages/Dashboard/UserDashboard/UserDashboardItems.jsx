@@ -23,7 +23,7 @@ const UserDashboardItems = () => {
                </li>
             <li className='flex items-center gap-2'>
                <MdPermContactCalendar></MdPermContactCalendar>
-                <NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                <NavLink to="/dashboard/viewBioData" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
                 View Biodata
                     </NavLink>
                </li>

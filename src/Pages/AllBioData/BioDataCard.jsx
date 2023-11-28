@@ -1,17 +1,18 @@
 import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 
-const BioDataCard = ({member}) => {
-const {_id, BiodataId, BiodataType, ProfileImage, PermanentDivisionName, Age, Occupation} = member;
+const BioDataCard = ({member, data}) => {
+const {_id, BiodataId, BiodataType, ProfileImage, Age, Occupation, PermanentDivisionName } = member;
+const id = data.length
     return (
         <div>
-            <div className="relative h-[450px] mb-2 bg-[#f7d6f7] flex flex-col text-gray-700 shadow-md w-96 rounded-xl bg-clip-border">
+            <div className="relative h-[450px] mb-2 bg-[#f1e5e5] flex flex-col text-gray-700 shadow-md w-96 rounded-xl bg-clip-border">
                 <div className="relative rounded-xl rounded-t-[200px] mx-auto mt-4 p-2 overflow-hidden bg-white shadow-lg bg-clip-border">
                     <img className="w-[200px] h-[200px] outline-double rounded-full" src={ProfileImage} />
                 </div>
                 <div className="flex flex-grow gap-2 text-left">
                 <div className="p-6">
-                    <h1> <span className="font-bold"> BiodataId: </span>{BiodataId}</h1>
+                    <h1> <span className="font-bold"> BiodataId: </span>{BiodataId || id}</h1>
                     <h1><span className="font-bold"> BiodataType: </span>{BiodataType}</h1>
                     <h1><span className="font-bold"> Division Name: </span>{PermanentDivisionName}</h1>
                 </div>
