@@ -48,7 +48,7 @@ const MyCreatedRoutes = createBrowserRouter([
                 element: <PrivateRoute>
                     <MemberDetails></MemberDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/members/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-12-server-eta-five.vercel.app/members/${params.id}`)
             },
         ]
     },
