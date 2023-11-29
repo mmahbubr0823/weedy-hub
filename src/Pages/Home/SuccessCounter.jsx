@@ -23,7 +23,7 @@ const SuccessCounter = ({data}) => {
                         <h1 className="text-3xl font-bold">Success Counter</h1>
                         <p className="text-sm my-3">Users can make the most of the matrimony website by first registering and creating a comprehensive profile that highlights their personal details, education, profession, family background, and partner preferences. </p>
                     </div>
-                    <div className="bg-lime-100 border-x-4 grid grid-cols-2">
+                    <div className="bg-lime-100 border-x-4 grid md:grid-cols-2">
                         <div className="border-b-4 flex gap-4 items-center px-20 py-16">
                             <p className="text-2xl">Total Biodata:{members?.length}</p>
                             <p><span><CgProfile className="text-4xl" /></span></p>

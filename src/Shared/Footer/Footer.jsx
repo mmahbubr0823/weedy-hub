@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <footer className="mt-10 p-10 bg-[#ad8af4] text-white">
                 <Container>
-                    <div className="flex items-center justify-center gap-5">
+                    <div className="md:flex items-center justify-center gap-5">
                         <div>
                             <div className="">
                                 <img className="w-28 h-28 rounded-md" src="https://i.ibb.co/1m6Kgjy/groom-putting-ring-bride-s-finger.jpg" alt="" />

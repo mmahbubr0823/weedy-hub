@@ -9,7 +9,6 @@ import useAuth from "../../Hooks/UswAuth/useAuth";
 const AllBioData = () => {
      const {loading} = useAuth();
     const [data] = useBioData();
-    console.log(data);
     const [filteredMembers, setFilteredMembers] = useState(data);
     const { register, handleSubmit } = useForm();
     const gender = ['Male', 'Female'];
@@ -18,7 +17,7 @@ const AllBioData = () => {
         return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />;
     }
     const onSubmit = (e) => {
-        // console.log(data.gender);
+        e.preventDefault();
         const fieldData = e.gender;
         const filteredData = data?.filter(item => item.BiodataType === fieldData);
         setFilteredMembers(filteredData)

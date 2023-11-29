@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BioDataCard = ({member, data}) => {
 const {_id, BiodataId, BiodataType, ProfileImage, Age, Occupation, PermanentDivisionName } = member;
-const id = data.length
+const id = data.length +1
     return (
         <div>
             <div className="relative h-[450px] mb-2 bg-[#f1e5e5] flex flex-col text-gray-700 shadow-md w-96 rounded-xl bg-clip-border">

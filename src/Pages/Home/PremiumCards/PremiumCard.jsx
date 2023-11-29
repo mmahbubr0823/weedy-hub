@@ -7,7 +7,7 @@ const id = loadedData.length
 
     return (
         <div>
-            <div className="relative h-[450px] mb-2 bg-[#f7d6f7] flex flex-col text-gray-700 shadow-md w-96 rounded-xl bg-clip-border">
+            <div className="relative h-[450px] mb-2 bg-[#f7d6f7] flex flex-col text-gray-700 shadow-md md:w-72 xl:w-96 rounded-xl bg-clip-border">
                 <div className="relative rounded-xl rounded-t-[200px] mx-auto mt-4 p-2 overflow-hidden bg-white shadow-lg bg-clip-border">
                     <img className="w-[200px] h-[200px] outline-double rounded-full" src={ProfileImage} />
                 </div>

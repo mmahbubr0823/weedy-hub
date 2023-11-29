@@ -15,7 +15,7 @@ const WorkingMethods = () => {
                         <h1 className="text-3xl font-bold">How Our Website Works</h1>
                         <p className="text-sm my-3">Users can make the most of the matrimony website by first registering and creating a comprehensive profile that highlights their personal details, education, profession, family background, and partner preferences. Upon setting their preferences, users can explore potential matches through the platform's matching algorithm and advanced search filters, allowing for a customized and efficient search process. The website offers various communication tools, including messaging, chat, and video calls, enabling users to interact with potential matches. </p>
                     </div>
-                    <div className=" grid gap-4 grid-cols-3">
+                    <div className=" grid gap-4 md:grid-cols-3">
                         <div className="bg-[#eaf46b] flex gap-4 items-center px-20 rounded-xl py-16">
                             <p className="text-2xl">Create Profile</p>
                             <p><span><CgProfile className="text-4xl" /></span></p>

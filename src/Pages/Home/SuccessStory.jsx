@@ -28,9 +28,9 @@ const SuccessStory = () => {
       <SwiperSlide>
         <div>
 
-          <div className="relative p-8 mb-2 bg-[#eee7e4] flex items-center w-full text-gray-700 shadow-md rounded-xl bg-clip-border">
+          <div className="relative p-8 mb-2 bg-[#eee7e4] flex flex-col md:flex-row items-center w-full text-gray-700 shadow-md rounded-xl bg-clip-border">
             <div className="relative w-1/2 rounded-xl mx-auto mt-4 p-2 overflow-hidden  bg-clip-border">
-              <img className="w-[300px] h-[300px] rounded-xl" src={'https://i.ibb.co/2gQhc8d/beautiful-woman-long-red-dress-walks-around-city-with-her-husband-1.jpg'} />
+              <img className="md:w-[300px] md:h-[300px] rounded-xl" src={'https://i.ibb.co/2gQhc8d/beautiful-woman-long-red-dress-walks-around-city-with-her-husband-1.jpg'} />
             </div>
             <div className="w-1/2 gap-2 text-left">
               <h1 className='text-xl font-bold mb-2'>About success</h1>
@@ -55,9 +55,9 @@ const SuccessStory = () => {
       <SwiperSlide>
         <div>
 
-          <div className="relative p-8 mb-2 bg-[#eee7e4] flex items-center w-full text-gray-700 shadow-md rounded-xl bg-clip-border">
+          <div className="relative p-8 mb-2 bg-[#eee7e4] flex flex-col md:flex-row items-center w-full text-gray-700 shadow-md rounded-xl bg-clip-border">
             <div className="relative w-1/2 rounded-xl mx-auto mt-4 p-2 overflow-hidden  bg-clip-border">
-              <img className="w-[300px] h-[300px] rounded-xl" src={'https://i.ibb.co/2gQhc8d/beautiful-woman-long-red-dress-walks-around-city-with-her-husband-1.jpg'} />
+              <img className="md:w-[300px] md:h-[300px] rounded-xl" src={'https://i.ibb.co/2gQhc8d/beautiful-woman-long-red-dress-walks-around-city-with-her-husband-1.jpg'} />
             </div>
             <div className="w-1/2 gap-2 text-left">
               <h1 className='text-xl font-bold mb-2'>About success</h1>
@@ -82,9 +82,9 @@ const SuccessStory = () => {
       <SwiperSlide>
         <div>
 
-          <div className="relative p-8 mb-2 bg-[#eee7e4] flex items-center w-full text-gray-700 shadow-md rounded-xl bg-clip-border">
+          <div className="relative p-8 mb-2 bg-[#eee7e4] flex flex-col md:flex-row items-center w-full text-gray-700 shadow-md rounded-xl bg-clip-border">
             <div className="relative w-1/2 rounded-xl mx-auto mt-4 p-2 overflow-hidden  bg-clip-border">
-              <img className="w-[300px] h-[300px] rounded-xl" src={'https://i.ibb.co/2gQhc8d/beautiful-woman-long-red-dress-walks-around-city-with-her-husband-1.jpg'} />
+              <img className="md:w-[300px] md:h-[300px] rounded-xl" src={'https://i.ibb.co/2gQhc8d/beautiful-woman-long-red-dress-walks-around-city-with-her-husband-1.jpg'} />
             </div>
             <div className="w-1/2 gap-2 text-left">
               <h1 className='text-xl font-bold mb-2'>About success</h1>
