@@ -37,28 +37,28 @@ const MyCreatedRoutes = createBrowserRouter([
                 element: <PrivateRoute>
                     <MemberDetails></MemberDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/members/${params.id}`)
+                loader: ({ params }) => fetch(`assignment-12-server-eta-five.vercel.app/members/${params.id}`)
             },
         ]
     },
     {
-        path:'/dashboard',
+        path: '/dashboard',
         element: <PrivateRoute>
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
-        children:[
+        children: [
             {
-                path:'/dashboard/createBiodata',
+                path: '/dashboard/createBiodata',
                 element: <CreateBiodata></CreateBiodata>
             },
             {
-                path:'/dashboard/viewBioData',
+                path: '/dashboard/viewBioData',
                 element: <ViewBioData></ViewBioData>
             },
         ]
     },
     {
-        path:'*',
+        path: '*',
         element: <Page404></Page404>
     }
 ])

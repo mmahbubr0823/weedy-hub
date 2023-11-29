@@ -19,7 +19,7 @@ const AllBioData = () => {
     const onSubmit = (e) => {
         // console.log(data.gender);
         const fieldData = e.gender;
-        const filteredData = data.filter(item => item.BiodataType === fieldData);
+        const filteredData = data?.filter(item => item.BiodataType === fieldData);
         setFilteredMembers(filteredData)
     }
     
