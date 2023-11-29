@@ -9,6 +9,7 @@ import useAuth from "../../Hooks/UswAuth/useAuth";
 const AllBioData = () => {
      const {loading} = useAuth();
     const [data] = useBioData();
+    console.log(data);
     const [filteredMembers, setFilteredMembers] = useState(data);
     const { register, handleSubmit } = useForm();
     const gender = ['Male', 'Female'];

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const fetch = axios.create({
-    baseURL: 'assignment-12-server-eta-five.vercel.app'
+    baseURL: 'http://localhost:5000'
 })
 
 const useAxios = () => {

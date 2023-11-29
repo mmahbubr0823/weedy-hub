@@ -10,6 +10,9 @@ import AllBioData from "../Pages/AllBioData/AllBioData";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
 import CreateBiodata from "../Pages/Dashboard/DashboardPages/CreateBiodata/CreateBiodata";
 import ViewBioData from "../Pages/Dashboard/DashboardPages/ViewBioData/ViewBioData";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+import Dashboard from "../Pages/Dashboard/DashboardPages/Dashboard";
 
 const MyCreatedRoutes = createBrowserRouter([
     {
@@ -29,6 +32,14 @@ const MyCreatedRoutes = createBrowserRouter([
                 element: <Login></Login>
             },
             {
+                path: '/aboutUs',
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: '/contactUs',
+                element: <ContactUs></ContactUs>
+            },
+            {
                 path: '/allBioData',
                 element: <AllBioData></AllBioData>
             },
@@ -37,7 +48,7 @@ const MyCreatedRoutes = createBrowserRouter([
                 element: <PrivateRoute>
                     <MemberDetails></MemberDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`assignment-12-server-eta-five.vercel.app/members/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/members/${params.id}`)
             },
         ]
     },
@@ -47,6 +58,10 @@ const MyCreatedRoutes = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
             {
                 path: '/dashboard/createBiodata',
                 element: <CreateBiodata></CreateBiodata>

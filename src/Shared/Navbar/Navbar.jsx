@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/UswAuth/useAuth";
-import useLogOut from "../../Hooks/useLogOut/useLogOut";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
@@ -23,8 +22,8 @@ const Navbar = () => {
 
         <li ><NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>Home</NavLink></li>
         <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/allBioData">Biodatas</NavLink></li>
-        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/addFood"> About Us</NavLink></li>
-        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/manageFood">Contact
+        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/aboutUs"> About Us</NavLink></li>
+        <li ><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/contactUs">Contact
             Us</NavLink></li>
         <li className="lg:mr-0 mb-2 lg:mb-0"><NavLink className={({ isActive }) => isActive ? 'underline text-green-400' : ''} to="/signUp">Sign Up</NavLink></li>
         {
