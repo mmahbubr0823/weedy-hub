@@ -1,10 +1,13 @@
-import { useLoaderData } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Container from '../../Layouts/Container/Container';
 import Title from '../../Shared/Title/Title';
+import useBioDataDetails from '../../Hooks/useBioDataDetails/useBioDataDetails';
 
 const MemberDetails = () => {
-    const loadedData = useLoaderData();
-    const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = loadedData;
+    const param = useParams();
+    const id = param.id;
+    const {data} = useBioDataDetails(id);
+    const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
 
     return (
         <div>

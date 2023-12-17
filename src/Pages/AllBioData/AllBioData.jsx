@@ -7,27 +7,43 @@ import { Spinner } from "@material-tailwind/react";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 
 const AllBioData = () => {
-     const {loading} = useAuth();
+    const { loading } = useAuth();
     const [data] = useBioData();
     const [filteredMembers, setFilteredMembers] = useState(data);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
+    const { register:register2, handleSubmit:handleSubmit2 } = useForm();
     const gender = ['Male', 'Female'];
-    console.log(data);
-    if(loading){
+    const divisions = ['Dhaka', 'Rangpur', 'Barisal', 'Khulna', 'Sylhet', 'Maymansign', 'Rajshahi', 'Chattagram'];
+    if (loading) {
         return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />;
     }
     const onSubmit = (e) => {
-        e.preventDefault();
-        const fieldData = e.gender;
-        const filteredData = data?.filter(item => item.BiodataType === fieldData);
-        setFilteredMembers(filteredData)
+        const sex = e.gender;
+        const residence = e.division;
+        console.log(sex);
+        if (sex === 'Male' || sex === 'Female') {
+            const filteredData = data?.filter(item => item.BiodataType === sex);
+            setFilteredMembers(filteredData)
+            reset();
+        }
+        else {
+            const filteredData = data?.filter(item => item.PermanentDivisionName === residence);
+            setFilteredMembers(filteredData)
+            reset();
+        }
+
+
     }
-    
+
     return (
         <Container>
-            <div>
-                <div className='flex justify-between'>
-                    <div>
+            <div className="text-center my-10 relative">
+                <h1 className='text-3xl font-bold mb-3'>Find Your B<span className='text-[#ed43f6]'>e</span>lov<span className='text-[#ed43f6]'>e</span>d!</h1>
+                <p className='text-sm text-gray-500'>Find Your Beloved encapsulates the essence of discovering <br /> a cherished life partner. The phrase evokes a sense of deep connection and emphasizes <br /> the journey to finding someone truly special and cherished.</p>
+            </div>
+            <div className="flex gap-3">
+                <div className='flex flex-col w-[25%]'>
+                    <div className="bg-gray-50 space-y-3 mx-auto p-5 rounded-md fixed">
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Search by gender</h1>
@@ -41,24 +57,40 @@ const AllBioData = () => {
                                         </option>)
                                     }
                                 </select>
-                                <input className="bg-[#ec59ef] py-[6px] rounded-md text-white px-3" type="submit" value={'Search'} />
+                                <input className="bg-[#ec59ef] ml-2 hover:cursor-pointer py-[6px] rounded-md text-white px-3" type="submit" value={'Search'} />
+                                
+                            </form>
+                        </div>
+                        <div>
+                            <form onSubmit={handleSubmit2(onSubmit)}>
+                            <h1>Search by division</h1>
+                                <select {...register2("division", { required: true })} className="w-40 p-2 rounded">
+                                    <option defaultValue={'select'}>select</option>
+                                    {
+                                        divisions.map((division, index) => <option key={index}>
+                                            {
+                                                division
+                                            }
+                                        </option>)
+                                    }
+                                </select>
+                                <input className="bg-[#ec59ef] ml-2 hover:cursor-pointer py-[6px] rounded-md text-white px-3" type="submit" value={'Search'} />
                             </form>
                         </div>
                     </div>
-                    <div className="text-center">
-                        <h1 className='text-3xl font-bold mb-3'>Find Your B<span className='text-[#ed43f6]'>e</span>lov<span className='text-[#ed43f6]'>e</span>d!</h1>
-                        <p className='text-sm text-gray-500'>Find Your Beloved encapsulates the essence of discovering <br /> a cherished life partner. The phrase evokes a sense of deep connection and emphasizes <br /> the journey to finding someone truly special and cherished.</p>
-                    </div>
+
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-10'>
-                    {
-                        filteredMembers.map(member => <BioDataCard
-                            key={member.BiodataId}
-                            member={member}
-                            data={data}
-                        >
-                        </BioDataCard>)
-                    }
+                <div className="w-[75%]">
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
+                        {
+                            filteredMembers.map(member => <BioDataCard
+                                key={member.BiodataId}
+                                member={member}
+                                data={data}
+                            >
+                            </BioDataCard>)
+                        }
+                    </div>
                 </div>
             </div>
         </Container>
