@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom';
 import Container from '../../Layouts/Container/Container';
 import Title from '../../Shared/Title/Title';
 import useBioDataDetails from '../../Hooks/useBioDataDetails/useBioDataDetails';
+import SimilarGender from './SimilarGender';
+import { Button } from '@material-tailwind/react';
 
 const MemberDetails = () => {
     const param = useParams();
@@ -10,15 +12,15 @@ const MemberDetails = () => {
     const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
 
     return (
-        <div>
             <Container>
             <Title title={'Member Details'}></Title>
-                <div className="relative h-full w-full my-10 bg-[#f7d6f7] flex p-5 items-center gap-5 text-gray-700 shadow-md rounded-xl bg-clip-border">
-                    <div className="relative rounded-xl rounded-t-[200px] mx-auto mt-4 p-2 overflow-hidden bg-white shadow-lg bg-clip-border">
-                        <img className="w-[400px] h-[400px] outline-double rounded-full" src={ProfileImage} />
+                <div className='flex gap-3'>
+                <div className=" h-full w-[25%] bg-[#f7d6f7] flex flex-col p-5 items-center gap-5 text-gray-700 shadow-md rounded-xl bg-clip-border">
+                    <div className=" rounded-xl rounded-t-[200px] mx-auto mt-4 p-2 overflow-hidden bg-white shadow-lg bg-clip-border">
+                        <img className="w-[150px] h-[150px] outline-double rounded-full" src={ProfileImage} />
                     </div>
-                    <div className="flex flex-grow gap-2 text-left">
-                        <div className="p-6">
+                    <div className="gap-2 text-left">
+                        <div className="p-3 text-sm">
                             <h1> <span className="font-bold"> BiodataId: </span>{BiodataId}</h1>
                             <h1><span className="font-bold"> BiodataType: </span>{BiodataType}</h1>
                             <h1><span className="font-bold">Name: </span>{Name}</h1>
@@ -28,7 +30,7 @@ const MemberDetails = () => {
                             <h1><span className="font-bold"> Weight: </span>{Weight}</h1>
                             <h1><span className="font-bold"> Date of Birth: </span>{DateOfBirth}</h1>
                         </div>
-                        <div className="p-6">
+                        <div className="p-3 text-sm">
 
                             <h1><span className="font-bold"> Age: </span>{Age}</h1>
                             <h1><span className="font-bold"> Height: </span>{Height}</h1>
@@ -39,9 +41,16 @@ const MemberDetails = () => {
                             <h1><span className="font-bold"> Mobile Number: </span>{MobileNumber}</h1>
                         </div>
                     </div>
+                    <div>
+                        <Button className="bg-[#ec2dc9] w-full" variant="outlined">Add Favorite</Button>
+                       <Button className="bg-[#ec2dc9] w-full mt-3" variant="outlined">Request Contact Info</Button>
+                    </div>
+                </div>
+                <div className='w-[75%]'>
+                    <SimilarGender></SimilarGender>
+                </div>
                 </div>
             </Container>
-        </div>
     );
 };
 

@@ -33,8 +33,6 @@ const AllBioData = () => {
 
 
     }
-
-    console.log(filteredMembers);
     return (
         <Container>
             <div className="text-center my-10 relative">
@@ -43,7 +41,7 @@ const AllBioData = () => {
             </div>
             <div className="min-h-[40vh] flex gap-3">
                 <div className=' flex flex-col w-[25%]'>
-                    <div className="bg-gray-50 space-y-3 mx-auto p-5 rounded-md fixed">
+                    <div className="bg-gray-50 min-h-[40vh] space-y-3 mx-auto p-5 rounded-md fixed">
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Search by gender</h1>
