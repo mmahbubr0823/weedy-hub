@@ -17,7 +17,7 @@ const UserDashboardItems = () => {
                </li>
             <li className='flex items-center gap-2'>
                <FaRegEdit></FaRegEdit>
-                <NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                <NavLink to="/dashboard/updateBiodata" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
                     Edit Biodata
                     </NavLink>
                </li>

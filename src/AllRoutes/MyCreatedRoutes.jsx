@@ -15,6 +15,7 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
 import Checkout from "../Pages/Checkout/Checkout";
 import ContactRequest from "../Pages/Dashboard/UserDashboard/ContactRequest/ContactRequest";
 import FavoriteBiodata from "../Pages/Dashboard/UserDashboard/DashboardPages/FavoriteBiodata/FavoriteBiodata";
+import EditBiodata from "../Pages/Dashboard/UserDashboard/DashboardPages/EditBiodata/EditBiodata";
 const MyCreatedRoutes = createBrowserRouter([
     {
         path: '/',
@@ -71,6 +72,10 @@ const MyCreatedRoutes = createBrowserRouter([
             {
                 path: '/dashboard/viewBioData',
                 element: <ViewBioData></ViewBioData>
+            },
+            {
+                path: '/dashboard/updateBiodata',
+                element: <EditBiodata></EditBiodata>
             },
             {
                 path: '/dashboard/contactRequests',

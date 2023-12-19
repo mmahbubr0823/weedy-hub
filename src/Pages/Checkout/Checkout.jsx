@@ -5,12 +5,11 @@ import useAxios from "../../Hooks/useAxios/useAxios";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import { useParams } from "react-router-dom";
 
-const Checkout = (data) => {
+const Checkout = () => {
     const { register, handleSubmit, reset } = useForm();
     const axios = useAxios();
     const {user} = useAuth();
     const {id} = useParams();
-    console.log(data);
     const onSubmit = async (data) => {
         try {
            

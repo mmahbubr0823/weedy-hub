@@ -1,5 +1,4 @@
 import { Card, Typography } from "@material-tailwind/react";
-import useContactInfo from "../../../../Hooks/useContactInfo/useContactInfo";
 const TABLE_HEAD = ["Name", "Biodata Id", "Status", "Mobile No", "Email", "Action"];
 
 const TABLE_ROWS = [
@@ -30,9 +29,6 @@ const TABLE_ROWS = [
     },
 ];
 const ContactRequest = () => {
-    const [data] = useContactInfo();
-    const desiredId = data.biodataId
-    console.log(data);
     return (
         <Card className="h-full w-full overflow-scroll">
             <table className="w-full min-w-max table-auto text-left">
