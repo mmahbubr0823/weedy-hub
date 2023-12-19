@@ -13,6 +13,7 @@ import ViewBioData from "../Pages/Dashboard/DashboardPages/ViewBioData/ViewBioDa
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Dashboard from "../Pages/Dashboard/DashboardPages/Dashboard";
+import Checkout from "../Pages/Checkout/Checkout";
 
 const MyCreatedRoutes = createBrowserRouter([
     {
@@ -47,6 +48,12 @@ const MyCreatedRoutes = createBrowserRouter([
                 path: '/members/:id',
                 element: <PrivateRoute>
                     <MemberDetails></MemberDetails>
+                </PrivateRoute>
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute>
+                   <Checkout></Checkout>
                 </PrivateRoute>
             },
         ]

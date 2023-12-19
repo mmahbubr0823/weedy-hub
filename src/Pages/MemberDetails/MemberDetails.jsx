@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Container from '../../Layouts/Container/Container';
 import Title from '../../Shared/Title/Title';
 import useBioDataDetails from '../../Hooks/useBioDataDetails/useBioDataDetails';
@@ -14,8 +14,8 @@ const MemberDetails = () => {
     return (
             <Container>
             <Title title={'Member Details'}></Title>
-                <div className='flex gap-3'>
-                <div className=" h-full w-[25%] bg-[#f7d6f7] flex flex-col p-5 items-center gap-5 text-gray-700 shadow-md rounded-xl bg-clip-border">
+                <div className='flex gap-10'>
+                <div className=" h-full w-[40%] bg-[#f7d6f7] flex flex-col p-2 text-gray-700 shadow-md rounded-xl bg-clip-border">
                     <div className=" rounded-xl rounded-t-[200px] mx-auto mt-4 p-2 overflow-hidden bg-white shadow-lg bg-clip-border">
                         <img className="w-[150px] h-[150px] outline-double rounded-full" src={ProfileImage} />
                     </div>
@@ -43,11 +43,13 @@ const MemberDetails = () => {
                     </div>
                     <div>
                         <Button className="bg-[#ec2dc9] w-full" variant="outlined">Add Favorite</Button>
+                       <Link to={`/checkout/${BiodataId}`}>
                        <Button className="bg-[#ec2dc9] w-full mt-3" variant="outlined">Request Contact Info</Button>
+                       </Link>
                     </div>
                 </div>
-                <div className='w-[75%]'>
-                    <SimilarGender></SimilarGender>
+                <div className='w-[60%]'>
+                    <SimilarGender BiodataType={BiodataType}></SimilarGender>
                 </div>
                 </div>
             </Container>
