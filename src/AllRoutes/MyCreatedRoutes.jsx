@@ -8,13 +8,13 @@ import PrivateRoute from "./PrivateRoute";
 import Page404 from "../Pages/Page404/Page404";
 import AllBioData from "../Pages/AllBioData/AllBioData";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
-import CreateBiodata from "../Pages/Dashboard/DashboardPages/CreateBiodata/CreateBiodata";
-import ViewBioData from "../Pages/Dashboard/DashboardPages/ViewBioData/ViewBioData";
+import CreateBiodata from "../Pages/Dashboard/UserDashboard/DashboardPages/CreateBiodata/CreateBiodata";
+import ViewBioData from "../Pages/Dashboard/UserDashboard/DashboardPages/ViewBioData/ViewBioData";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
-import Dashboard from "../Pages/Dashboard/DashboardPages/Dashboard";
 import Checkout from "../Pages/Checkout/Checkout";
-
+import ContactRequest from "../Pages/Dashboard/UserDashboard/ContactRequest/ContactRequest";
+import FavoriteBiodata from "../Pages/Dashboard/UserDashboard/DashboardPages/FavoriteBiodata/FavoriteBiodata";
 const MyCreatedRoutes = createBrowserRouter([
     {
         path: '/',
@@ -65,10 +65,6 @@ const MyCreatedRoutes = createBrowserRouter([
         </PrivateRoute>,
         children: [
             {
-                path: '/dashboard',
-                element: <Dashboard></Dashboard>
-            },
-            {
                 path: '/dashboard/createBiodata',
                 element: <CreateBiodata></CreateBiodata>
             },
@@ -76,6 +72,15 @@ const MyCreatedRoutes = createBrowserRouter([
                 path: '/dashboard/viewBioData',
                 element: <ViewBioData></ViewBioData>
             },
+            {
+                path: '/dashboard/contactRequests',
+                element: <ContactRequest></ContactRequest>
+            },
+            {
+                path: '/dashboard/favorites',
+                element: <FavoriteBiodata></FavoriteBiodata>
+            },
+            
         ]
     },
     {

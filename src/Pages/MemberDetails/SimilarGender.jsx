@@ -10,14 +10,13 @@ const SimilarGender = ({ BiodataType }) => {
         const filteredData = data.filter(singleData => singleData.BiodataType === BiodataType);
         setSimilarData(filteredData);
     }, [data, BiodataType])
-    console.log(similarData);
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
 
                 {
-                    similarData.map(member => <SimilarCard
-                        key={member.BiodataId}
+                    similarData.map((member, idx) => <SimilarCard
+                        key={idx}
                         member={member}
                         data={data}
                     >

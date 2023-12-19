@@ -29,13 +29,13 @@ const UserDashboardItems = () => {
                </li>
             <li className='flex items-center gap-2'>
                <IoCall></IoCall>
-                <NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                <NavLink to="/dashboard/contactRequests" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
                 My Contact Request
                     </NavLink>
                </li>
             <li className='flex items-center gap-2'>
                <MdFavoriteBorder></MdFavoriteBorder>
-                <NavLink to="/" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                <NavLink to="/dashboard/favorites" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
                 Favourites Biodata
                     </NavLink>
                </li>

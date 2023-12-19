@@ -4,13 +4,38 @@ import Title from '../../Shared/Title/Title';
 import useBioDataDetails from '../../Hooks/useBioDataDetails/useBioDataDetails';
 import SimilarGender from './SimilarGender';
 import { Button } from '@material-tailwind/react';
-
+import useAxios from '../../Hooks/useAxios/useAxios';
+import Swal from 'sweetalert2';
 const MemberDetails = () => {
     const param = useParams();
     const id = param.id;
+    const axios = useAxios();
     const {data} = useBioDataDetails(id);
     const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
 
+    const handleFavorites = async () => {
+        try {
+            const sendData = {
+                ...data
+            }
+            const postData = await axios.post('/favoritesBiodata', sendData);
+            if (postData.data.acknowledged === true) {
+                Swal.fire({
+                    title: "",
+                    text: "Biodata added successfully into favorites",
+                    icon: "success"
+                });
+            }
+        }
+        catch (error) {
+            console.log(error, data);
+            Swal.fire({
+                title: "",
+                text: {error},
+                icon: "error"
+            });
+        }
+    }
     return (
             <Container>
             <Title title={'Member Details'}></Title>
@@ -42,7 +67,7 @@ const MemberDetails = () => {
                         </div>
                     </div>
                     <div>
-                        <Button className="bg-[#ec2dc9] w-full" variant="outlined">Add Favorite</Button>
+                        <Button onClick={handleFavorites} className="bg-[#ec2dc9] w-full" variant="outlined">Add Favorite</Button>
                        <Link to={`/checkout/${BiodataId}`}>
                        <Button className="bg-[#ec2dc9] w-full mt-3" variant="outlined">Request Contact Info</Button>
                        </Link>

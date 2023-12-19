@@ -5,29 +5,34 @@ import useAxios from "../../Hooks/useAxios/useAxios";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import { useParams } from "react-router-dom";
 
-const Checkout = () => {
+const Checkout = (data) => {
     const { register, handleSubmit, reset } = useForm();
     const axios = useAxios();
     const {user} = useAuth();
     const {id} = useParams();
+    console.log(data);
     const onSubmit = async (data) => {
         try {
            
             const formData = {
                 ...data
             }
-            const postData = await axios.post('/members', formData);
+            const postData = await axios.post('/contactRequests', formData);
             if (postData.data.acknowledged === true) {
                 Swal.fire({
                     title: "",
-                    text: "Your Bio data successfully created.",
+                    text: "Your request is accepted. Please waite for admin's approval",
                     icon: "success"
                 });
                 reset();
             }
         }
         catch (error) {
-            console.log(error);
+            Swal.fire({
+                title: "",
+                text: {error},
+                icon: "error"
+            });
         }
     }
     return (
