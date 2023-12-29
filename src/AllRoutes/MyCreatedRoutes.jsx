@@ -16,6 +16,10 @@ import Checkout from "../Pages/Checkout/Checkout";
 import ContactRequest from "../Pages/Dashboard/UserDashboard/ContactRequest/ContactRequest";
 import FavoriteBiodata from "../Pages/Dashboard/UserDashboard/DashboardPages/FavoriteBiodata/FavoriteBiodata";
 import EditBiodata from "../Pages/Dashboard/UserDashboard/DashboardPages/EditBiodata/EditBiodata";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
+import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
+import ApprovedPremium from "../Pages/Dashboard/AdminDashboard/ApprovedPremium";
+import ApprovedContactRequest from "../Pages/Dashboard/AdminDashboard/ApprovedContactRequest";
 const MyCreatedRoutes = createBrowserRouter([
     {
         path: '/',
@@ -59,12 +63,14 @@ const MyCreatedRoutes = createBrowserRouter([
             },
         ]
     },
+    // dashboard part 
     {
         path: '/dashboard',
         element: <PrivateRoute>
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
+            // user dashboard 
             {
                 path: '/dashboard/createBiodata',
                 element: <CreateBiodata></CreateBiodata>
@@ -85,6 +91,24 @@ const MyCreatedRoutes = createBrowserRouter([
                 path: '/dashboard/favorites',
                 element: <FavoriteBiodata></FavoriteBiodata>
             },
+            // admin dashboard 
+            {
+                path: '/dashboard/adminDashboard',
+                element: <AdminDashboard></AdminDashboard>
+            },
+            {
+                path: '/dashboard/manageUsers',
+                element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: '/dashboard/approvedPremium',
+                element: <ApprovedPremium></ApprovedPremium>
+            },
+            {
+                path: '/dashboard/approvedContactRequest',
+                element: <ApprovedContactRequest></ApprovedContactRequest>
+            },
+            
             
         ]
     },

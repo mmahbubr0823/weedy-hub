@@ -9,7 +9,6 @@ import useRole from '../../../Hooks/useRole/useRole';
 const DashboardLayout = () => {
     const {user} = useAuth();
     const [data] = useRole(user.email)
-   console.log(data.role);
     return (
         <div>
             <Navbar></Navbar>
