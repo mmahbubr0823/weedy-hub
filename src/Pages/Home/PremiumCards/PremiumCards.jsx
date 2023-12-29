@@ -22,8 +22,8 @@ const PremiumCards = () => {
         </div>
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10'>
             {
-                loadedData.slice(0, 6).map(member =><PremiumCard
-                key={member.BiodataId}
+                loadedData.slice(0, 6).map((member, idx) =><PremiumCard
+                key={idx}
                 member={member}
                 loadedData={loadedData}
                 >

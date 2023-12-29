@@ -10,7 +10,7 @@ const Login = () => {
     const { logInUser } = useAuth();
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm()
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         const email = data.email;
         const password = data.password;
         // password validation 
@@ -18,18 +18,16 @@ const Login = () => {
             return toast.error('Your password should contain at least one upperCase, one special character and more than 6')
         }
         // login user 
-        logInUser(email, password)
-            .then(result => {
-               if (result) {
-                toast.success('User successfully logged in')
-                navigate(Location.state ? Location.state : '/')
-               }
-            })
-            .catch(err => {
-                if (err) {
-                    toast.error('Your credentials do not match.')
-                }
-            })
+        try {
+            // logInUser 
+            await logInUser(email, password);
+            toast.success('User successfully logged in')
+            navigate(Location.state ? Location.state : '/')
+        }
+        catch (err) {
+            toast.error('Your credentials do not match.')
+        }
+
     }
     return (
         <Container>
@@ -46,7 +44,7 @@ const Login = () => {
                         </h3>
                     </div>
                     <div className="my-4 flex flex-col gap-6">
-                        
+
                         <div className="relative mt-5 h-11 w-full min-w-[200px]">
                             <input
                                 {...register("email", { required: true })}
@@ -115,7 +113,7 @@ const Login = () => {
                     <input
                         className=" mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="submit" value="Sign Up" />
-                        <SocialLogin></SocialLogin>
+                    <SocialLogin></SocialLogin>
 
                     <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         New here?

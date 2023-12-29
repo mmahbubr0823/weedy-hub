@@ -6,7 +6,9 @@ import SimilarGender from './SimilarGender';
 import { Button } from '@material-tailwind/react';
 import useAxios from '../../Hooks/useAxios/useAxios';
 import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/UswAuth/useAuth';
 const MemberDetails = () => {
+    const {user} = useAuth();
     const param = useParams();
     const id = param.id;
     const axios = useAxios();
@@ -16,7 +18,8 @@ const MemberDetails = () => {
     const handleFavorites = async () => {
         try {
             const sendData = {
-                ...data
+                ...data,
+                userEmail: user.email
             }
             const postData = await axios.post('/favoritesBiodata', sendData);
             if (postData.data.acknowledged === true) {

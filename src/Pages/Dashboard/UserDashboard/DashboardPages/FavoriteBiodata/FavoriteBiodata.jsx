@@ -1,9 +1,11 @@
 import { Card, Typography } from "@material-tailwind/react";
-import useFavorites from "../../../../../Hooks/useFavorites/useFavorites";
 import  './favorites.css'
+import { getFavoriteData } from "../../../../../api/allApi";
+import useAuth from "../../../../../Hooks/UswAuth/useAuth";
 const FavoriteBiodata = () => {
+    const {user} = useAuth();
     const TABLE_HEAD = ["#", "Name", "Biodata Id", "Permanent Address", "Occupation", "Action"];
-    const [data] = useFavorites();
+    const [data] = getFavoriteData(user.email);
     
     return (
         <Card className="min-h-[60vh] w-full p-3 overflow-scroll">
