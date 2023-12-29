@@ -3,12 +3,18 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import useAuth from '../../../../../Hooks/UswAuth/useAuth';
 import useAxios from '../../../../../Hooks/useAxios/useAxios';
-import { useParams } from 'react-router-dom';
+// import { getSingleData } from '../../../../../api/allApi';
 const EditBiodata = () => {
-    const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
-    const par = useParams();
-    console.log(par);
+    // try{
+
+    //     // const data = getSingleData(user.email);
+    // }
+    // catch(error){
+
+    //     console.log(error);
+    // }
+    const { register, handleSubmit, reset } = useForm();
     const insertData = useAxios();
     const onSubmit = async (data) => {
         const image = data.ProfileImage[0];
@@ -32,7 +38,6 @@ const EditBiodata = () => {
             }
         }
         catch (error) {
-            console.log(error);
             Swal.fire({
                 title: "",
                 text: {error},

@@ -7,7 +7,7 @@ const UserDashboardItems = () => {
     return (
         <div>
             <div>
-            <div className='bg-white px-4 py-3 rounded-lg min-h-[60vh]'>
+            <div className='bg-white px-4 py-3 rounded-lg min-h-screen'>
             <ul className='space-y-3'>
             <li className='flex items-center gap-2'>
                <ImProfile></ImProfile>

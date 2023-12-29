@@ -30,7 +30,11 @@ const CreateBiodata = () => {
             }
         }
         catch (error) {
-            console.log(error);
+            Swal.fire({
+                title: "",
+                text: 'Something went wrong',
+                icon: "error"
+            });
         }
     }
 
@@ -40,8 +44,8 @@ const CreateBiodata = () => {
     const races = ['Islam', 'Hindu', 'Christian', 'Bhuddist'];
     return (
         <div>
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-[#ece8e5] rounded-md p-5 mb-2">
             <h1 className='text-2xl font-semibold text-center my-6'>Please fill out this form</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-md p-5 mb-2">
 
                 <div className="grid grid-cols-2 gap-6">
 
@@ -50,7 +54,7 @@ const CreateBiodata = () => {
                             {...register("BiodataType")}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                         >
-                            <option defaultValue={'select'}>select</option>
+                            <option selected hidden readOnly>select</option>
                             {
                                 gender.map((gen, index) => <option key={index}>
                                     {gen}
@@ -129,7 +133,7 @@ const CreateBiodata = () => {
                             {...register("Occupation", { required: true })}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                         >
-                            <option defaultValue={'select'}>select</option>
+                            <option selected hidden readOnly>select</option>
                             {
                                 occupations.map((occupation, index) => <option key={index}>
                                     {occupation}
@@ -146,7 +150,7 @@ const CreateBiodata = () => {
                             {...register("Race", { required: true })}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                         >
-                            <option defaultValue={'select'}>select</option>
+                            <option selected hidden readOnly>select</option>
                             {
                                 races.map((race, index) => <option key={index}>
                                     {race}
@@ -183,7 +187,7 @@ const CreateBiodata = () => {
                             {...register("PermanentDivisionName", { required: true })}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                         >
-                            <option defaultValue={'select'}>select</option>
+                            <option selected hidden readOnly>select</option>
                             {
                                 divisions.map((division, index) => <option key={index}>
                                     {division}
@@ -200,7 +204,7 @@ const CreateBiodata = () => {
                             {...register("PresentDivisionName", { required: true })}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                         >
-                            <option defaultValue={'select'}>select</option>
+                            <option selected hidden readOnly>select</option>
                             {
                                 divisions.map((division, index) => <option key={index}>
                                     {division}
@@ -268,7 +272,7 @@ const CreateBiodata = () => {
                 </div>
 
                 <input
-                    className=" mt-6 block w-3/4 mx-auto select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    className=" mt-6 block cursor-pointer w-3/4 mx-auto select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="submit" value="Save and Publish Now" />
             </form>
         </div>
