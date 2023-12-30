@@ -1,26 +1,42 @@
 import { Button } from "@material-tailwind/react";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import useAxios from "../../../../../Hooks/useAxios/useAxios";
 
 const ViewBioDataCard = ({ singleData }) => {
+    const axios = useAxios();
     const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName, PresentDivisionName, ContactEmail, MobileNumber } = singleData;
+    const postData = {
+        ...singleData
+    }
     const handlePremium = () => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            title: "Are you sure to make your bio data premium?",
+            // text: "Please waite for admin's approval!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+            confirmButtonText: "Yes, make it premium!"
+        }).then(async (result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-              });
+                try {
+                    const res = await axios.post('/premiumBioData', postData);
+                    console.log(res);
+                    if (res.acknowledged === true) {
+                        Swal.fire({
+                            title: "Your request is accepted.",
+                            text: "Please waite for admin's approval!",
+                            icon: "success"
+                        });
+                    }
+                }
+                catch (error) {
+                    console.log(error);
+                    toast.error(error)
+                }
             }
-          });
+        });
     }
     return (
         <div>
