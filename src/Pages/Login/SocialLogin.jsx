@@ -5,6 +5,7 @@ import useAuth from "../../Hooks/UswAuth/useAuth";
 import { saveUser } from "../../api/allApi";
 const SocialLogin = () => {
     const { googleLogIn, user } = useAuth();
+    console.log(user);
     const location = useLocation();
     const navigate = useNavigate();
     // social log in 

@@ -13,6 +13,6 @@ export const saveUser = async (user) => {
 
 export const maleBioData= async()=>{
 const {data} = await axiosPublic.get('/members/Male');
-console.log(data);
+// console.log(data);
 return data;
 }

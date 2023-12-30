@@ -1,34 +1,17 @@
 import { Card, Typography } from "@material-tailwind/react";
-const TABLE_HEAD = ["Name", "Biodata Id", "Status", "Mobile No", "Email", "Action"];
-
-const TABLE_ROWS = [
-    {
-        name: "John Michael",
-        job: "Manager",
-        date: "23/04/18",
-    },
-    {
-        name: "Alexa Liras",
-        job: "Developer",
-        date: "23/04/18",
-    },
-    {
-        name: "Laurent Perrier",
-        job: "Executive",
-        date: "19/09/17",
-    },
-    {
-        name: "Michael Levi",
-        job: "Developer",
-        date: "24/12/08",
-    },
-    {
-        name: "Richard Gran",
-        job: "Manager",
-        date: "04/10/21",
-    },
-];
+import { useQuery } from "@tanstack/react-query";
+import { axiosPublic } from "../../../../api";
+import useAuth from "../../../../Hooks/UswAuth/useAuth";
+const TABLE_HEAD = ["#", "Name", "Biodata Id", "Status", "Mobile No", "Email", "Action"];
 const ContactRequest = () => {
+    const {user} = useAuth();
+    const {data: contactPerson = []}= useQuery({
+        queryKey: ['contactRequest'],
+        queryFn: async ()=>{
+            const res = await axiosPublic.get(`/contactRequests/${user.email}`);
+            return res.data;
+        }
+    })
     return (
         <Card className="h-full w-full overflow-scroll">
             <table className="w-full min-w-max table-auto text-left">
@@ -39,7 +22,7 @@ const ContactRequest = () => {
                                 <Typography
                                     variant="small"
                                     color="blue-gray"
-                                    className="font-normal leading-none opacity-70"
+                                    className="font-bold leading-none opacity-70"
                                 >
                                     {head}
                                 </Typography>
@@ -48,26 +31,41 @@ const ContactRequest = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {TABLE_ROWS.map(({ name, job, date }, index) => (
+                    {contactPerson.map(({ Name, BiodataId, MobileNumber, ContactEmail }, index) => (
                         <tr key={name} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {name}
+                                    {index+1}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {job}
+                                    {Name}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {date}
+                                    {BiodataId}
+                                </Typography>
+                            </td>
+                            <td className="p-4">
+                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-normal">
+                                   Pending
+                                </Typography>
+                            </td>
+                            <td className="p-4">
+                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-normal">
+                                   {MobileNumber}
+                                </Typography>
+                            </td>
+                            <td className="p-4">
+                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-normal">
+                                  {ContactEmail}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                                    Edit
+                                <button className='bg-[#6053e8] px-3 py-2 rounded-md text-white'>Delete</button>
                                 </Typography>
                             </td>
                         </tr>

@@ -13,7 +13,7 @@ const MemberDetails = () => {
     const id = param.id;
     const axios = useAxios();
     const {data} = useBioDataDetails(id);
-    const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
+    const {_id, BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
 
     const handleFavorites = async () => {
         try {
@@ -71,7 +71,7 @@ const MemberDetails = () => {
                     </div>
                     <div>
                         <Button onClick={handleFavorites} className="bg-[#ec2dc9] w-full" variant="outlined">Add Favorite</Button>
-                       <Link to={`/checkout/${BiodataId}`}>
+                       <Link to={`/checkout/${_id}`}>
                        <Button className="bg-[#ec2dc9] w-full mt-3" variant="outlined">Request Contact Info</Button>
                        </Link>
                     </div>

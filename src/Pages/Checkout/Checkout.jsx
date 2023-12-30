@@ -3,18 +3,23 @@ import Container from "../../Layouts/Container/Container";
 import Swal from "sweetalert2";
 import useAxios from "../../Hooks/useAxios/useAxios";
 import useAuth from "../../Hooks/UswAuth/useAuth";
-import { useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
+import useBioDataDetails from "../../Hooks/useBioDataDetails/useBioDataDetails";
 const Checkout = () => {
     const { register, handleSubmit, reset } = useForm();
     const axios = useAxios();
     const {user} = useAuth();
     const {id} = useParams();
+    const navigate = useNavigate();
+    const {data:contactPerson}= useBioDataDetails(id)
     const onSubmit = async (data) => {
+        const selfBiodataId = data.selfBiodataId;
+        const selfEmail = data.selfEmail;
+        const stripeCardNumber = data.stripeCardNumber;
+
         try {
-           
             const formData = {
-                ...data
+                ...contactPerson, selfBiodataId, selfEmail, stripeCardNumber
             }
             const postData = await axios.post('/contactRequests', formData);
             if (postData.data.acknowledged === true) {
@@ -24,6 +29,7 @@ const Checkout = () => {
                     icon: "success"
                 });
                 reset();
+                navigate('/dashboard/contactRequests')
             }
         }
         catch (error) {
@@ -44,7 +50,7 @@ const Checkout = () => {
                     <h1>Just fill out the form:</h1>
                 <div className="relative h-11 w-full max-w-[30vw]">
                         <input
-                        defaultValue={id} readOnly
+                        defaultValue={contactPerson.BiodataId} readOnly
                             {...register("biodataId", { required: true })}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
 
@@ -66,7 +72,7 @@ const Checkout = () => {
                 <div className="relative h-11 w-full max-w-[30vw]">
                         <input
                          defaultValue={user.email} readOnly
-                            {...register("selfEmail ", { required: true })}
+                            {...register("selfEmail", { required: true })}
                             className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
 
                         />
