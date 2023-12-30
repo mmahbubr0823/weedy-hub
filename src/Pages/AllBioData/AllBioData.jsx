@@ -3,7 +3,7 @@ import useBioData from "../../Hooks/useBioData/useBioData";
 import Container from "../../Layouts/Container/Container";
 import BioDataCard from "./BioDataCard";
 import { useState } from "react";
-import { Spinner } from "@material-tailwind/react";
+// import { Spinner } from "@material-tailwind/react";
 // import useAuth from "../../Hooks/UswAuth/useAuth";
 
 const AllBioData = () => {

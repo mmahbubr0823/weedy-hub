@@ -22,7 +22,7 @@ const DashboardLayout = () => {
                         data.role === 'admin' &&  <AdminDashboardItems></AdminDashboardItems>
                         }
                     </div>
-                    <div className='col-span-8'>
+                    <div className='col-span-8 mx-auto'>
                         <Outlet></Outlet>
                     </div>
                 </div>
