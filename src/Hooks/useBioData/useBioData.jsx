@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import useAxios from '../useAxios/useAxios'
+import { axiosPublic } from '../../api';
 const useBioData = () => {
-    const axios = useAxios();
     const {data = [], refetch, isLoading}= useQuery({
         queryKey: ['members'],
         queryFn: async ()=>{
-            const res = await axios.get('/members');
+            const res = await axiosPublic.get('/members');
             return res.data;
         }
     })

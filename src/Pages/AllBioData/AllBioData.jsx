@@ -4,19 +4,17 @@ import Container from "../../Layouts/Container/Container";
 import BioDataCard from "./BioDataCard";
 import { useState } from "react";
 import { Spinner } from "@material-tailwind/react";
-import useAuth from "../../Hooks/UswAuth/useAuth";
+// import useAuth from "../../Hooks/UswAuth/useAuth";
 
 const AllBioData = () => {
-    const { loading } = useAuth();
+    // const { loading } = useAuth();
     const [data] = useBioData();
     const [filteredMembers, setFilteredMembers] = useState(data);
     const { register, handleSubmit, reset } = useForm();
     const { register: register2, handleSubmit: handleSubmit2, reset:reset2 } = useForm();
     const gender = ['Male', 'Female'];
     const divisions = ['Dhaka', 'Rangpur', 'Barisal', 'Khulna', 'Sylhet', 'Maymansign', 'Rajshahi', 'Chattagram'];
-    if (loading) {
-        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />;
-    }
+    
     const onSubmit = (e) => {
         const sex = e.gender;
         const residence = e.division;
@@ -82,6 +80,7 @@ const AllBioData = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                         
                         {
+                    
                         filteredMembers.length > 0 ?
                             filteredMembers.map(member => <BioDataCard
                                 key={member.BiodataId}
