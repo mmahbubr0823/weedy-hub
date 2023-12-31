@@ -59,12 +59,12 @@ const ContactRequest = () => {
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-normal">
+                                <Typography as="a" variant="small" color="blue-gray" className="font-normal">
                                   {ContactEmail}
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography as="a" variant="small" color="blue-gray" className="font-medium">
                                 <button className='bg-[#6053e8] px-3 py-2 rounded-md text-white'>Delete</button>
                                 </Typography>
                             </td>

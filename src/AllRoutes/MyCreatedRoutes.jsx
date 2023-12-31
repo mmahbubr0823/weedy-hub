@@ -20,6 +20,7 @@ import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import ApprovedPremium from "../Pages/Dashboard/AdminDashboard/ApprovedPremium";
 import ApprovedContactRequest from "../Pages/Dashboard/AdminDashboard/ApprovedContactRequest";
+import GotMarried from "../Pages/Dashboard/UserDashboard/GotMarried/GotMarried";
 const MyCreatedRoutes = createBrowserRouter([
     {
         path: '/',
@@ -90,6 +91,10 @@ const MyCreatedRoutes = createBrowserRouter([
             {
                 path: '/dashboard/favorites',
                 element: <FavoriteBiodata></FavoriteBiodata>
+            },
+            {
+                path: '/dashboard/gotMarried',
+                element: <GotMarried></GotMarried>
             },
             // admin dashboard 
             {

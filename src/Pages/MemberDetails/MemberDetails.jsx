@@ -11,6 +11,7 @@ const MemberDetails = () => {
     const {user} = useAuth();
     const param = useParams();
     const id = param.id;
+    // const idInt = parseInt(id);
     const axios = useAxios();
     const {data} = useBioDataDetails(id);
     const {_id, BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
@@ -25,13 +26,12 @@ const MemberDetails = () => {
             if (postData.data.acknowledged === true) {
                 Swal.fire({
                     title: "",
-                    text: "Biodata added successfully into favorites",
+                    text: "Bio data added successfully into favorites",
                     icon: "success"
                 });
             }
         }
         catch (error) {
-            console.log(error, data);
             Swal.fire({
                 title: "",
                 text: {error},
@@ -42,7 +42,7 @@ const MemberDetails = () => {
     return (
             <Container>
             <Title title={'Member Details'}></Title>
-                <div className='flex gap-10'>
+                <div className='flex gap-10 mt-10'>
                 <div className=" h-full w-[40%] bg-[#f7d6f7] flex flex-col p-2 text-gray-700 shadow-md rounded-xl bg-clip-border">
                     <div className=" rounded-xl rounded-t-[200px] mx-auto mt-4 p-2 overflow-hidden bg-white shadow-lg bg-clip-border">
                         <img className="w-[150px] h-[150px] outline-double rounded-full" src={ProfileImage} />

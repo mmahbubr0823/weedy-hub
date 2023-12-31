@@ -11,25 +11,25 @@ return (
                 <ul className='space-y-3'>
                     <li className='flex items-center gap-2'>
                         <ImProfile></ImProfile>
-                        <NavLink to="/dashboard/adminDashboard" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                        <NavLink to="/dashboard/adminDashboard" className={({ isActive }) => isActive ? 'underline text-green-400' : 'hover:text-green-600'}>
                             Admin Dashboard
                         </NavLink>
                     </li>
                     <li className='flex items-center gap-2'>
                         <FaRegEdit></FaRegEdit>
-                        <NavLink to="/dashboard/manageUsers" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                        <NavLink to="/dashboard/manageUsers" className={({ isActive }) => isActive ? 'underline text-green-400' : 'hover:text-green-600'}>
                             Manage Users
                         </NavLink>
                     </li>
                     <li className='flex items-center gap-2'>
                         <MdPermContactCalendar></MdPermContactCalendar>
-                        <NavLink to="/dashboard/approvedPremium" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                        <NavLink to="/dashboard/approvedPremium" className={({ isActive }) => isActive ? 'underline text-green-400' : 'hover:text-green-600'}>
                             Approved Premium
                         </NavLink>
                     </li>
                     <li className='flex items-center gap-2 text-sm'>
                         <IoCall></IoCall>
-                        <NavLink to="/dashboard/approvedContactRequest" className={({ isActive }) => isActive ? 'underline text-green-400' : ''}>
+                        <NavLink to="/dashboard/approvedContactRequest" className={({ isActive }) => isActive ? 'underline text-green-400' : 'hover:text-green-600'}>
                             Approved Contact Request
                         </NavLink>
                     </li>

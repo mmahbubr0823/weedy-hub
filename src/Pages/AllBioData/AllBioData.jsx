@@ -3,6 +3,7 @@ import useBioData from "../../Hooks/useBioData/useBioData";
 import Container from "../../Layouts/Container/Container";
 import BioDataCard from "./BioDataCard";
 import { useState } from "react";
+import Pagination from "./Pagination";
 // import { Spinner } from "@material-tailwind/react";
 // import useAuth from "../../Hooks/UswAuth/useAuth";
 
@@ -10,8 +11,8 @@ const AllBioData = () => {
     // const { loading } = useAuth();
     const [data] = useBioData();
     const [filteredMembers, setFilteredMembers] = useState(data);
-    const { register, handleSubmit, reset } = useForm();
-    const { register: register2, handleSubmit: handleSubmit2, reset:reset2 } = useForm();
+    const { register, handleSubmit} = useForm();
+    const { register: register2, handleSubmit: handleSubmit2 } = useForm();
     const gender = ['Male', 'Female'];
     const divisions = ['Dhaka', 'Rangpur', 'Barisal', 'Khulna', 'Sylhet', 'Maymansign', 'Rajshahi', 'Chattagram'];
     
@@ -20,13 +21,11 @@ const AllBioData = () => {
         const residence = e.division;
         if (sex === 'Male' || sex === 'Female') {
             const filteredData = data?.filter(item => item.BiodataType === sex);
-            setFilteredMembers(filteredData)
-            reset();
+            setFilteredMembers(filteredData);
         }
         else {
             const filteredData = data?.filter(item => item.PermanentDivisionName === residence);
-            setFilteredMembers(filteredData)
-            reset2();
+            setFilteredMembers(filteredData);
         }
 
 
@@ -39,7 +38,7 @@ const AllBioData = () => {
             </div>
             <div className="min-h-[40vh] flex gap-3">
                 <div className=' flex flex-col w-[25%]'>
-                    <div className="bg-gray-50 min-h-[40vh] space-y-3 mx-auto p-5 rounded-md fixed">
+                    <div className="bg-gray-50 min-h-[60vh] space-y-3 mx-auto p-5 rounded-md">
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Search by gender</h1>
@@ -95,6 +94,7 @@ const AllBioData = () => {
                         <div> </div>
                     
                     </div>
+                    <Pagination></Pagination>
                 </div>
             </div>
         </Container>

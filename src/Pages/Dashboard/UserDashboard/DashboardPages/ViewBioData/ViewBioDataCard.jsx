@@ -26,14 +26,14 @@ const ViewBioDataCard = ({ singleData }) => {
                     if (res.acknowledged === true) {
                         Swal.fire({
                             title: "Your request is accepted.",
-                            text: "Please waite for admin's approval!",
+                            text: "Please wait for admin's approval!",
                             icon: "success"
                         });
                     }
                 }
                 catch (error) {
                     console.log(error);
-                    toast.error(error)
+                    toast.error(error.message)
                 }
             }
         });
