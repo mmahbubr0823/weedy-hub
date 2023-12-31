@@ -36,9 +36,9 @@ const AllBioData = () => {
                 <h1 className='text-3xl font-bold mb-3'>Find Your B<span className='text-[#ed43f6]'>e</span>lov<span className='text-[#ed43f6]'>e</span>d!</h1>
                 <p className='text-sm text-gray-500'>Find Your Beloved encapsulates the essence of discovering <br /> a cherished life partner. The phrase evokes a sense of deep connection and emphasizes <br /> the journey to finding someone truly special and cherished.</p>
             </div>
-            <div className="min-h-[40vh] flex gap-3">
+            <div className="min-h-[40vh] flex gap-3 relative">
                 <div className=' flex flex-col w-[25%]'>
-                    <div className="bg-gray-50 min-h-[60vh] space-y-3 mx-auto p-5 rounded-md">
+                    <div className="bg-gray-50 min-h-[60vh] space-y-3 mx-auto p-5 rounded-md fixed top-[20vh]">
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Search by gender</h1>

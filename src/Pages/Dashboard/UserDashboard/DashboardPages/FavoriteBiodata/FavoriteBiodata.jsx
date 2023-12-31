@@ -7,7 +7,10 @@ const FavoriteBiodata = () => {
     const TABLE_HEAD = ["#", "Name", "Biodata Id", "Permanent Address", "Occupation", "Action"];
     const [data] = useFavorites(user.email);  
     return (
-        <Card className="min-h-[60vh] w-full p-3 overflow-scroll">
+        <div>
+            {
+                data.length > 0 ?  
+            <Card className="min-h-[60vh] w-full p-3 overflow-scroll">
             <table className="w-full min-w-max table-auto text-left">
                 <thead>
                     <tr>
@@ -62,6 +65,10 @@ const FavoriteBiodata = () => {
                 </tbody>
             </table>
         </Card>
+                : 
+                <h1>You havent chosen any item as favorite</h1>
+            }
+        </div>
     );
 };
 

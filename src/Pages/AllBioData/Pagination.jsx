@@ -34,8 +34,8 @@ const Pagination = () => {
             >
                 <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
             </Button>
-            <div className="flex items-center space-x-10">
-                <IconButton {...getItemProps(1)}>1</IconButton>
+            <div className="flex items-center space-x-10 bg-[#d52de4]">
+                <IconButton className="" {...getItemProps(1)}>1</IconButton>
                 <IconButton {...getItemProps(2)}>2</IconButton>
                 <IconButton {...getItemProps(3)}>3</IconButton>
                 <IconButton {...getItemProps(4)}>4</IconButton>

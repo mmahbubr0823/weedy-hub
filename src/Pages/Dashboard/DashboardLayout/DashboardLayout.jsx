@@ -8,7 +8,7 @@ import useAuth from '../../../Hooks/UswAuth/useAuth';
 import useRole from '../../../Hooks/useRole/useRole';
 const DashboardLayout = () => {
     const {user} = useAuth();
-    const [data] = useRole(user.email)
+    const [userRole] = useRole(user.email)
     return (
         <div>
             <Navbar></Navbar>
@@ -16,10 +16,10 @@ const DashboardLayout = () => {
                 <div className=' grid grid-cols-10 gap-3 mt-16'>
                     <div className='col-span-2'>
                         {
-                            data.role === 'randomUser' && <UserDashboard></UserDashboard>
+                            (userRole.role === 'randomUser' || userRole.role === 'premium') && <UserDashboard></UserDashboard>
                         }
                         {
-                        data.role === 'admin' &&  <AdminDashboardItems></AdminDashboardItems>
+                        userRole.role === 'admin' &&  <AdminDashboardItems></AdminDashboardItems>
                         }
                     </div>
                     <div className='col-span-8 mx-auto'>

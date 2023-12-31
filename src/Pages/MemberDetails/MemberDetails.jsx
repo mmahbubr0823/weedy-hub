@@ -7,11 +7,12 @@ import { Button } from '@material-tailwind/react';
 import useAxios from '../../Hooks/useAxios/useAxios';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/UswAuth/useAuth';
+import useRole from '../../Hooks/useRole/useRole';
 const MemberDetails = () => {
     const {user} = useAuth();
+    const [userRole] = useRole(user.email)
     const param = useParams();
     const id = param.id;
-    // const idInt = parseInt(id);
     const axios = useAxios();
     const {data} = useBioDataDetails(id);
     const {_id, BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
@@ -65,15 +66,25 @@ const MemberDetails = () => {
                             <h1><span className="font-bold"> Race: </span>{Race}</h1>
                             <h1><span className="font-bold"> Permanent Division Name: </span>{PermanentDivisionName}</h1>
                             <h1><span className="font-bold"> Present Division Name: </span>{PresentDivisionName}</h1>
+                            {
+                                userRole.role === 'premium'
+                                 && 
+                            <>
                             <h1><span className="font-bold"> Contact Email: </span>{ContactEmail}</h1>
                             <h1><span className="font-bold"> Mobile Number: </span>{MobileNumber}</h1>
+                            </>
+                            }
                         </div>
                     </div>
                     <div>
                         <Button onClick={handleFavorites} className="bg-[#ec2dc9] w-full" variant="outlined">Add Favorite</Button>
+                        {
+                            userRole.role === 'randomUser'
+                            &&
                        <Link to={`/checkout/${_id}`}>
                        <Button className="bg-[#ec2dc9] w-full mt-3" variant="outlined">Request Contact Info</Button>
                        </Link>
+                        }
                     </div>
                 </div>
                 <div className='w-[60%]'>
