@@ -12,7 +12,7 @@ const ManageUsers = () => {
     })
     const TABLE_HEAD = ["#", "User Name", "User Email", "Action", "Action"];
     return (
-        <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#f6f1e7]">
+        <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#f2e6f6]">
             <table className="w-full min-w-max table-auto text-left">
                 <thead>
                     <tr>

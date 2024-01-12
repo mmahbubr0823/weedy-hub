@@ -1,15 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { axiosPublic } from "../../../api";
 import { Card, Typography } from "@material-tailwind/react";
+import usePremium from "../../../Hooks/usePremium/usePremium";
 
 const ApprovedPremium = () => {
-    const {data:premiumUser = []}= useQuery({
-        queryKey: ['premiumBioData'],
-        queryFn: async ()=>{
-            const res = await axiosPublic.get('/premiumBioData');
-            return res.data;
-        }
-    })
+    const [premiumUser] = usePremium();
     const TABLE_HEAD = ["#", "User Name", "User Email", "BioData Id", "Action"];
     return (
         <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#f6f1e7]">
@@ -31,7 +24,7 @@ const ApprovedPremium = () => {
                 </thead>
                 <tbody>
                     {premiumUser.map(({ Name, ContactEmail }, index) => (
-                        <tr key={name} className="even:bg-blue-gray-50/50">
+                        <tr key={index} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-medium">
                                     {index +1}
