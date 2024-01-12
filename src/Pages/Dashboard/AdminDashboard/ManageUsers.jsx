@@ -3,7 +3,7 @@ import { axiosPublic } from '../../../api';
 import { Card, Typography } from '@material-tailwind/react';
 
 const ManageUsers = () => {
-    const {data: user = []}= useQuery({
+    const {data:user = []}= useQuery({
         queryKey: ['user'],
         queryFn: async ()=>{
             const res = await axiosPublic.get('/users');

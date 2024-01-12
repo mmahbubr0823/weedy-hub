@@ -10,7 +10,8 @@ import useAuth from '../../Hooks/UswAuth/useAuth';
 import useRole from '../../Hooks/useRole/useRole';
 const MemberDetails = () => {
     const {user} = useAuth();
-    const [userRole] = useRole(user.email)
+    const [userRole] = useRole(user.email);
+    console.log(userRole);
     const param = useParams();
     const id = param.id;
     const axios = useAxios();

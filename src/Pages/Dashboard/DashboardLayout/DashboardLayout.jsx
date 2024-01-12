@@ -8,7 +8,8 @@ import useAuth from '../../../Hooks/UswAuth/useAuth';
 import useRole from '../../../Hooks/useRole/useRole';
 const DashboardLayout = () => {
     const {user} = useAuth();
-    const [userRole] = useRole(user.email)
+    const [userRole] = useRole(user.email);
+    console.log(userRole.role);
     return (
         <div>
             <Navbar></Navbar>

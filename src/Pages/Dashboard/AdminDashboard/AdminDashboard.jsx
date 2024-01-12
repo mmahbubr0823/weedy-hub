@@ -1,22 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
 import useBioData from '../../../Hooks/useBioData/useBioData';
-import { axiosPublic } from '../../../api';
+import { useEffect, useState } from 'react';
 const AdminDashboard = () => {
     const [data] = useBioData();
-    const {data: male = []}= useQuery({
-        queryKey: ['male'],
-        queryFn: async ()=>{
-            const res = await axiosPublic.get('/members/Male');
-            return res.data;
-        }
-    })
-    const {data: female = []}= useQuery({
-        queryKey: ['female'],
-        queryFn: async ()=>{
-            const res = await axiosPublic.get('/members/Female');
-            return res.data;
-        }
-    })
+    const [male, setMale] = useState([]);
+    const [female, setFemale] = useState([]);
+    useEffect(()=>{
+        const filter = data.filter(res => res.BiodataType === 'Male');
+        setMale(filter);
+        // female data 
+        const filter2 = data.filter(res => res.BiodataType === 'Female');
+        setFemale(filter2);
+    }, [data])
     return (
         <div>
             <h1 className='text-3xl text-center font-semibold mb-5'>Bio Data stat at a glance:</h1>
