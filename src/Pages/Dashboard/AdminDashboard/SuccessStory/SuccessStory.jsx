@@ -1,21 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
-import { axiosPublic } from '../../../api';
-import { Card, Spinner, Typography } from '@material-tailwind/react';
+import { Card, Typography, Button, Dialog, DialogBody, DialogHeader, DialogFooter, Spinner } from "@material-tailwind/react";
+import useSuccessStory from "../../../../Hooks/useSuccessStory/useSuccessStory";
+import { useState } from "react";
 
-const ManageUsers = () => {
-    const {data:user = [], isLoading}= useQuery({
-        queryKey: ['user'],
-        queryFn: async ()=>{
-            const res = await axiosPublic.get('/users');
-            return res.data;
-        }
-    })
+const SuccessStory = () => {
+    const [story, isLoading] = useSuccessStory();
+    const [open, setOpen] = useState(false);
     if (isLoading) {
         return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
     }
-    const TABLE_HEAD = ["#", "User Name", "User Email", "Action", "Action"];
+    const TABLE_HEAD = ["#", "Male BioData Id", "Female BioData Id", "Action"];
+    const handleOpen = () => setOpen(!open);
+
     return (
-        <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#f2e6f6]">
+        <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#ebf6e7]">
             <table className="w-full min-w-max table-auto text-left">
                 <thead>
                     <tr>
@@ -33,40 +30,51 @@ const ManageUsers = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {user.map(({ name, email }, index) => (
-                        <tr key={name} className="even:bg-blue-gray-50/50">
+                    {story.map(({ selfId, partnerId, review }, index) => (
+                        <tr key={index} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-medium">
-                                    {index +1}
+                                    {index + 1}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-medium">
-                                    {name}
+                                    {selfId}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {email}
+                                    {partnerId}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography as="a" variant="small" color="blue-gray" className="font-medium">
-                                  
-                                  <button className='bg-[#e853dc] px-3 py-2 rounded-md text-white'>Make Admin</button>
-                                </Typography>
-                            </td>
-                            <td className="p-4">
-                                <Typography as="a" variant="small" color="blue-gray" className="font-medium">
-                                  <button className='bg-[#6053e8] px-3 py-2 rounded-md text-white'>Make Premium</button>
+                                    <button onClick={handleOpen} className='bg-[#d453e8] px-3 py-2 rounded-md text-white'>View Story</button>
+                                    <Dialog className="w-[40vw] mx-[40vw] my-[30vh]" open={open} handler={handleOpen}>
+                                        <DialogHeader>Success Story</DialogHeader>
+                                        <DialogBody>{review}</DialogBody>
+                                        <DialogFooter>
+                                            <Button
+                                                variant="text"
+                                                color="red"
+                                                onClick={handleOpen}
+                                                className="ml-auto"
+                                            >
+                                                <span>Cancel</span>
+                                            </Button>
+                                        </DialogFooter>
+                                    </Dialog>
                                 </Typography>
                             </td>
                         </tr>
+
                     ))}
                 </tbody>
+
             </table>
+
         </Card>
     );
 };
 
-export default ManageUsers;
+export default SuccessStory;

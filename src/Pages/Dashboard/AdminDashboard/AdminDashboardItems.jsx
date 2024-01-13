@@ -1,4 +1,4 @@
-import { FaRegEdit } from 'react-icons/fa';
+import { FaRegEdit, FaBookOpen } from 'react-icons/fa';
 import { ImProfile } from 'react-icons/im';
 import { IoCall } from 'react-icons/io5';
 import { MdPermContactCalendar } from 'react-icons/md';
@@ -31,6 +31,12 @@ return (
                         <IoCall></IoCall>
                         <NavLink to="/dashboard/approvedContactRequest" className={({ isActive }) => isActive ? 'underline text-green-400' : 'hover:text-green-600'}>
                             Approved Contact Request
+                        </NavLink>
+                    </li>
+                    <li className='flex items-center gap-2 text-sm'>
+                       <FaBookOpen></FaBookOpen>
+                        <NavLink to="/dashboard/successStory" className={({ isActive }) => isActive ? 'underline text-green-400' : 'hover:text-green-600'}>
+                        Success Stories
                         </NavLink>
                     </li>
                 </ul>

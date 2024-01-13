@@ -1,9 +1,12 @@
-import { Card, Typography } from "@material-tailwind/react";
+import { Card, Spinner, Typography } from "@material-tailwind/react";
 import usePremium from "../../../Hooks/usePremium/usePremium";
 
 const ApprovedPremium = () => {
-    const [premiumUser] = usePremium();
+    const [premiumUser, isLoading] = usePremium();
     const TABLE_HEAD = ["#", "User Name", "User Email", "BioData Id", "Action"];
+    if (isLoading) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
     return (
         <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#f6f1e7]">
             <table className="w-full min-w-max table-auto text-left">

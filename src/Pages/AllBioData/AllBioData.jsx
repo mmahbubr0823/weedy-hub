@@ -4,15 +4,19 @@ import Container from "../../Layouts/Container/Container";
 import BioDataCard from "./BioDataCard";
 import { useState } from "react";
 import Pagination from "./Pagination";
+import { Spinner } from "@material-tailwind/react";
 // import { Spinner } from "@material-tailwind/react";
 // import useAuth from "../../Hooks/UswAuth/useAuth";
 
 const AllBioData = () => {
     // const { loading } = useAuth();
-    const [data] = useBioData();
+    const [data, isLoading] = useBioData();
     const [filteredMembers, setFilteredMembers] = useState(data);
     const { register, handleSubmit} = useForm();
     const { register: register2, handleSubmit: handleSubmit2 } = useForm();
+    if (isLoading) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
     const gender = ['Male', 'Female'];
     const divisions = ['Dhaka', 'Rangpur', 'Barisal', 'Khulna', 'Sylhet', 'Maymansign', 'Rajshahi', 'Chattagram'];
     

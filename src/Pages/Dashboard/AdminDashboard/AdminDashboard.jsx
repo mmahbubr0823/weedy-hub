@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { PieChart, Pie, Tooltip, Legend, Cell } from 'recharts';
 
 import usePremium from '../../../Hooks/usePremium/usePremium';
+import { Spinner } from '@material-tailwind/react';
 const AdminDashboard = () => {
     const [data] = useBioData();
     const [premiumUser] = usePremium();
@@ -15,13 +16,16 @@ const AdminDashboard = () => {
         const filter2 = data.filter(res => res.BiodataType === 'Female');
         setFemale(filter2);
     }, [data])
+    if (male.length === 0 || data.length === 0 || female.length === 0 || premiumUser.length === 0) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
     const data01 = [
         { name: 'Total Bio Data', value: data.length },
         { name: ' Male Data', value: male.length },
         { name: ' Female Data', value: female.length },
         { name: ' Premium User', value: premiumUser.length },
     ];
-    const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const colors = ['green', 'brown', 'blue', 'orange'];
     return (
         <div>
             <h1 className='text-3xl text-center font-semibold mb-5'>Bio Data stat at a glance:</h1>

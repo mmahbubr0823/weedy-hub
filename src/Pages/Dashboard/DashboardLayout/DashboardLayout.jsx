@@ -6,10 +6,13 @@ import { Outlet } from 'react-router-dom';
 import AdminDashboardItems from '../AdminDashboard/AdminDashboardItems';
 import useAuth from '../../../Hooks/UswAuth/useAuth';
 import useRole from '../../../Hooks/useRole/useRole';
+import { Spinner } from '@material-tailwind/react';
 const DashboardLayout = () => {
-    const {user} = useAuth();
-    const [userRole] = useRole(user.email);
-    console.log(userRole.role);
+    const {user, loading} = useAuth();
+    const [userRole, isLoading] = useRole(user.email);
+    if (isLoading || loading) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
     return (
         <div>
             <Navbar></Navbar>

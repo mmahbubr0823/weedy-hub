@@ -21,6 +21,7 @@ import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import ApprovedPremium from "../Pages/Dashboard/AdminDashboard/ApprovedPremium";
 import ApprovedContactRequest from "../Pages/Dashboard/AdminDashboard/ApprovedContactRequest";
 import GotMarried from "../Pages/Dashboard/UserDashboard/GotMarried/GotMarried";
+import SuccessStory from "../Pages/Dashboard/AdminDashboard/SuccessStory/SuccessStory";
 const MyCreatedRoutes = createBrowserRouter([
     {
         path: '/',
@@ -112,6 +113,10 @@ const MyCreatedRoutes = createBrowserRouter([
             {
                 path: '/dashboard/approvedContactRequest',
                 element: <ApprovedContactRequest></ApprovedContactRequest>
+            },
+            {
+                path: '/dashboard/successStory',
+                element: <SuccessStory></SuccessStory>
             },
             
             

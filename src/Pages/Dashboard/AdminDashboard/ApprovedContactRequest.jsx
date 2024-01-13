@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { axiosPublic } from '../../../api';
-import { Card, Typography } from '@material-tailwind/react';
+import { Card, Spinner, Typography } from '@material-tailwind/react';
 
 const ApprovedContactRequest = () => {
     const {data:contactedUser = [], isLoading}= useQuery({
@@ -11,7 +11,7 @@ const ApprovedContactRequest = () => {
         }
     })
     if (isLoading) {
-        return 'loading'
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
     }
     const TABLE_HEAD = ["#", "User Name", "User Email", "BioData Id", "Action"];
     return (
