@@ -98,7 +98,7 @@ const AllBioData = () => {
                         <div> </div>
                     
                     </div>
-                    <Pagination></Pagination>
+                    <Pagination setFilteredMembers={setFilteredMembers}></Pagination>
                 </div>
             </div>
         </Container>

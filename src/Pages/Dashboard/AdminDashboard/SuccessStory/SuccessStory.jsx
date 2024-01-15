@@ -2,8 +2,6 @@ import { Card, Typography, Button, Dialog, DialogBody, DialogHeader, DialogFoote
 import useSuccessStory from "../../../../Hooks/useSuccessStory/useSuccessStory";
 import { useState } from "react";
 import { singleStory } from "../../../../Hooks/useSingleStory/singleStory";
-// import { useQuery } from "@tanstack/react-query";
-
 const SuccessStory = () => {
     const [story, isLoading] = useSuccessStory();
     const [open, setOpen] = useState(false);

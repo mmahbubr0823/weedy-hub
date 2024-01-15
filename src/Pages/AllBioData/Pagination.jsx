@@ -1,55 +1,75 @@
-import React from "react";
-import { Button, IconButton } from "@material-tailwind/react";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
+import { Button, Spinner } from "@material-tailwind/react";
+import useAuth from "../../Hooks/UswAuth/useAuth";
+import { axiosPublic } from "../../api";
 
-const Pagination = () => {
-    const [active, setActive] = React.useState(1);
 
-    const getItemProps = (index) =>
-    ({
-        variant: active === index ? "filled" : "text",
-        color: "gray",
-        onClick: () => setActive(index),
-    });
+const Pagination = ({ setFilteredMembers }) => {
+    const { loading } = useAuth()
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [count, setCount] = useState(50);
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/members?page=${currentPage}&size=${itemsPerPage}`)
+    //         .then(res => res.json())
+    //         .then(data => setFilteredMembers(data))
+    // }, [currentPage, itemsPerPage, setFilteredMembers]);
 
-    const next = () => {
-        if (active === 5) return;
+    useEffect(() => {
+        const fetchData = async () => {
+            const {data} = await axiosPublic.get(`/members?page=${currentPage}&size=${itemsPerPage}`);
 
-        setActive(active + 1);
-    };
+            setFilteredMembers(data);
+        };
 
-    const prev = () => {
-        if (active === 1) return;
+        fetchData();
+    }, [currentPage, itemsPerPage, setFilteredMembers]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const {data} = await axiosPublic.get('/membersCount');
+            setCount(data.count);
+        };
+        fetchData();
+    }, []);
 
-        setActive(active - 1);
-    };
+
+    if (loading || isLoading) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
+
+    // setCount(data.count)
+
+
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+    const pages = [...Array(numberOfPages).keys()];
+
+    console.log(pages);
+
+
+
+    const handlePrev = () => {
+        setCurrentPage(currentPage - 1);
+    }
+    const handleNext = () => {
+        setCurrentPage(currentPage + 1);
+    }
 
     return (
-        <div className="flex items-center justify-center gap-4">
-            <Button
-                variant="text"
-                className="flex items-center gap-2"
-                onClick={prev}
-                disabled={active === 1}
-            >
-                <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
-            </Button>
-            <div className="flex items-center space-x-10 bg-[#d52de4]">
-                <IconButton className="" {...getItemProps(1)}>1</IconButton>
-                <IconButton {...getItemProps(2)}>2</IconButton>
-                <IconButton {...getItemProps(3)}>3</IconButton>
-                <IconButton {...getItemProps(4)}>4</IconButton>
-                <IconButton {...getItemProps(5)}>5</IconButton>
+        <div className=" text-center">
+            <div>
+                <Button onClick={handlePrev} disabled={currentPage === 0} className="text-black mr-3 bg-[#f97bd7]">Prev</Button>
+                {
+                    pages.map(page => <Button
+                        key={page}
+                        className={currentPage === page ? 'text-black mr-3 bg-[#e5dff0]'
+                            : 'text-black mr-3 bg-[#f97bd7]'}
+                        onClick={() => setCurrentPage(page)}
+                    >
+                        {page + 1}
+                    </Button>)
+                }
+                <Button onClick={handleNext} disabled={currentPage === pages.length - 1} className="text-black mr-3 bg-[#f97bd7]">Next</Button>
             </div>
-            <Button
-                variant="text"
-                className="flex items-center gap-2"
-                onClick={next}
-                disabled={active === 5}
-            >
-                Next
-                <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
-            </Button>
         </div>
     );
 };

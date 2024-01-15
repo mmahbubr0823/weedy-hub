@@ -10,9 +10,3 @@ export const saveUser = async (user) => {
     const { data } = await axiosPublic.put(`/users/${user?.email}`, currentUser);
     return data
 }
-
-export const maleBioData= async()=>{
-const {data} = await axiosPublic.get('/members/Male');
-// console.log(data);
-return data;
-}
