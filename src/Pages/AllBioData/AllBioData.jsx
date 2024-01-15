@@ -42,7 +42,7 @@ const AllBioData = () => {
             </div>
             <div className="min-h-[40vh] flex gap-3 relative">
                 <div className=' flex flex-col w-[25%]'>
-                    <div className="bg-gray-50 min-h-[60vh] space-y-3 mx-auto p-5 rounded-md fixed top-[20vh]">
+                    <div className="bg-gray-50 min-h-[60vh] space-y-3 mx-auto p-5 rounded-md top-[20vh]">
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Search by gender</h1>

@@ -3,7 +3,6 @@ import { Button, Spinner } from "@material-tailwind/react";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import { axiosPublic } from "../../api";
 
-
 const Pagination = ({ setFilteredMembers }) => {
     const { loading } = useAuth()
     const [currentPage, setCurrentPage] = useState(0);
@@ -17,7 +16,7 @@ const Pagination = ({ setFilteredMembers }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const {data} = await axiosPublic.get(`/members?page=${currentPage}&size=${itemsPerPage}`);
+            const { data } = await axiosPublic.get(`/members?page=${currentPage}&size=${itemsPerPage}`);
 
             setFilteredMembers(data);
         };
@@ -26,26 +25,18 @@ const Pagination = ({ setFilteredMembers }) => {
     }, [currentPage, itemsPerPage, setFilteredMembers]);
     useEffect(() => {
         const fetchData = async () => {
-            const {data} = await axiosPublic.get('/membersCount');
+            const { data } = await axiosPublic.get('/membersCount');
             setCount(data.count);
         };
         fetchData();
     }, []);
 
-
-    if (loading || isLoading) {
+    if (loading) {
         return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
     }
 
-    // setCount(data.count)
-
-
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()];
-
-    console.log(pages);
-
-
 
     const handlePrev = () => {
         setCurrentPage(currentPage - 1);

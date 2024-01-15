@@ -11,11 +11,10 @@ import useRole from '../../Hooks/useRole/useRole';
 const MemberDetails = () => {
     const {user} = useAuth();
     const [userRole] = useRole(user.email);
-    console.log(userRole);
     const param = useParams();
     const id = param.id;
     const axios = useAxios();
-    const {data} = useBioDataDetails(id);
+    const {data, refetch} = useBioDataDetails(id);
     const {_id, BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName ,PresentDivisionName, ContactEmail, MobileNumber} = data;
 
     const handleFavorites = async () => {
@@ -89,7 +88,7 @@ const MemberDetails = () => {
                     </div>
                 </div>
                 <div className='w-[60%]'>
-                    <SimilarGender BiodataType={BiodataType}></SimilarGender>
+                    <SimilarGender refetch={refetch} BiodataType={BiodataType}></SimilarGender>
                 </div>
                 </div>
             </Container>

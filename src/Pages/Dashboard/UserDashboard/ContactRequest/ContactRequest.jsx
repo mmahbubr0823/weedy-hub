@@ -1,17 +1,20 @@
-import { Card, Typography } from "@material-tailwind/react";
+import { Card, Spinner, Typography } from "@material-tailwind/react";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPublic } from "../../../../api";
 import useAuth from "../../../../Hooks/UswAuth/useAuth";
 const TABLE_HEAD = ["#", "Name", "Biodata Id", "Status", "Mobile No", "Email", "Action"];
 const ContactRequest = () => {
     const {user} = useAuth();
-    const {data: contactPerson = []}= useQuery({
+    const {data: contactPerson = [], isLoading}= useQuery({
         queryKey: ['contactRequest'],
         queryFn: async ()=>{
             const res = await axiosPublic.get(`/contactRequests/${user.email}`);
             return res.data;
         }
     })
+    if (isLoading) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
     return (
         <Card className="h-full w-full overflow-scroll">
             <table className="w-full min-w-max table-auto text-left">

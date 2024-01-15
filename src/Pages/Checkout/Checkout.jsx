@@ -35,7 +35,7 @@ const Checkout = () => {
         catch (error) {
             Swal.fire({
                 title: "",
-                text: {error},
+                text: error.message,
                 icon: "error"
             });
         }

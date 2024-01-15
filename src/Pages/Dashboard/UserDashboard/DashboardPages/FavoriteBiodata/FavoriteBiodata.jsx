@@ -1,11 +1,14 @@
-import { Card, Typography } from "@material-tailwind/react";
+import { Card, Spinner, Typography } from "@material-tailwind/react";
 import  './favorites.css'
 import useAuth from "../../../../../Hooks/UswAuth/useAuth";
 import useFavorites from "../../../../../Hooks/useFavorites/useFavorites";
 const FavoriteBiodata = () => {
     const {user} = useAuth();
+    const [data, isLoading] = useFavorites(user.email);  
+    if (isLoading) {
+        return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
+    }
     const TABLE_HEAD = ["#", "Name", "Biodata Id", "Permanent Address", "Occupation", "Action"];
-    const [data] = useFavorites(user.email);  
     return (
         <div>
             {
