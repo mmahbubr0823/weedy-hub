@@ -14,7 +14,11 @@ const SuccessCounter = ({data}) => {
 
         const filteredFemale = members?.filter((member) =>member.BiodataType === 'Female');
         setFemale(filteredFemale)
-    }, [members])
+    }, [members]);
+    useEffect(()=>{
+        const filteredFemale = members?.filter((member) =>member.BiodataType === 'Female');
+        setFemale(filteredFemale)
+    }, [members]);
     return (
         <div>
             <Container>
