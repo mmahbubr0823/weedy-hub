@@ -26,7 +26,6 @@ const Register = () => {
             const imgData = await uploadPhoto(img)
             // register user 
             const result =  await createUser(email, password)
-            console.log(result);
             // update user profile 
             await updateUser(name, imgData?.data?.display_url)
             // save user info 

@@ -1,5 +1,6 @@
 import { Card, Spinner, Typography } from "@material-tailwind/react";
 import usePremium from "../../../Hooks/usePremium/usePremium";
+import Title from "../../../Shared/Title/Title";
 
 const ApprovedPremium = () => {
     const [premiumUser, isLoading] = usePremium();
@@ -9,6 +10,7 @@ const ApprovedPremium = () => {
     }
     return (
         <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#f6f1e7]">
+             <Title title={'Approve Premium'}></Title>
             <table className="w-full min-w-max table-auto text-left">
                 <thead>
                     <tr>

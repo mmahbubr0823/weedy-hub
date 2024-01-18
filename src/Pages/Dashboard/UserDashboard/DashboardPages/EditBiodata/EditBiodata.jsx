@@ -3,17 +3,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import useAuth from '../../../../../Hooks/UswAuth/useAuth';
 import useAxios from '../../../../../Hooks/useAxios/useAxios';
-// import { getSingleData } from '../../../../../api/allApi';
+import Title from '../../../../../Shared/Title/Title';
 const EditBiodata = () => {
     const { user } = useAuth();
-    // try{
-
-    //     // const data = getSingleData(user.email);
-    // }
-    // catch(error){
-
-    //     console.log(error);
-    // }
     const { register, handleSubmit, reset } = useForm();
     const insertData = useAxios();
     const onSubmit = async (data) => {
@@ -52,6 +44,7 @@ const EditBiodata = () => {
     const races = ['Islam', 'Hindu', 'Christian', 'Bhuddist'];
     return (
         <div>
+             <Title title={'Edit BioData'}></Title>
             <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-md p-5 mb-2">
             <h1 className='text-2xl font-semibold text-center my-6'>Please fill out this form</h1>
 

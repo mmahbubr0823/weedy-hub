@@ -2,6 +2,7 @@ import { Card, Typography, Button, Dialog, DialogBody, DialogHeader, DialogFoote
 import useSuccessStory from "../../../../Hooks/useSuccessStory/useSuccessStory";
 import { useState } from "react";
 import { singleStory } from "../../../../Hooks/useSingleStory/singleStory";
+import Title from "../../../../Shared/Title/Title";
 const SuccessStory = () => {
     const [story, isLoading] = useSuccessStory();
     const [open, setOpen] = useState(false);
@@ -26,6 +27,7 @@ const SuccessStory = () => {
 
     return (
         <Card className="min-h-[60vh] w-full p-3 overflow-y-scroll bg-[#e7e9f6]">
+             <Title title={'Success Story'}></Title>
             <table className="w-full min-w-max table-auto text-left">
                 <thead>
                     <tr>

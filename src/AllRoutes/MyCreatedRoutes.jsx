@@ -22,6 +22,8 @@ import ApprovedPremium from "../Pages/Dashboard/AdminDashboard/ApprovedPremium";
 import ApprovedContactRequest from "../Pages/Dashboard/AdminDashboard/ApprovedContactRequest";
 import GotMarried from "../Pages/Dashboard/UserDashboard/GotMarried/GotMarried";
 import SuccessStory from "../Pages/Dashboard/AdminDashboard/SuccessStory/SuccessStory";
+import UserRoute from "./UserRoute/UserRoute";
+import AdminRoute from "./AdminRoute/AdminRoute";
 const MyCreatedRoutes = createBrowserRouter([
     {
         path: '/',
@@ -75,48 +77,48 @@ const MyCreatedRoutes = createBrowserRouter([
             // user dashboard 
             {
                 path: '/dashboard/createBiodata',
-                element: <CreateBiodata></CreateBiodata>
+                element: <UserRoute><CreateBiodata></CreateBiodata></UserRoute>
             },
             {
                 path: '/dashboard/viewBioData',
-                element: <ViewBioData></ViewBioData>
+                element: <UserRoute><ViewBioData></ViewBioData></UserRoute>
             },
             {
                 path: '/dashboard/updateBiodata',
-                element: <EditBiodata></EditBiodata>
+                element: <UserRoute><EditBiodata></EditBiodata></UserRoute>
             },
             {
                 path: '/dashboard/contactRequests',
-                element: <ContactRequest></ContactRequest>
+                element: <UserRoute><ContactRequest></ContactRequest></UserRoute>
             },
             {
                 path: '/dashboard/favorites',
-                element: <FavoriteBiodata></FavoriteBiodata>
+                element: <UserRoute><FavoriteBiodata></FavoriteBiodata></UserRoute>
             },
             {
                 path: '/dashboard/gotMarried',
-                element: <GotMarried></GotMarried>
+                element: <UserRoute><GotMarried></GotMarried></UserRoute>
             },
             // admin dashboard 
             {
                 path: '/dashboard/adminDashboard',
-                element: <AdminDashboard></AdminDashboard>
+                element: <AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
             },
             {
                 path: '/dashboard/manageUsers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
                 path: '/dashboard/approvedPremium',
-                element: <ApprovedPremium></ApprovedPremium>
+                element: <AdminRoute><ApprovedPremium></ApprovedPremium></AdminRoute>
             },
             {
                 path: '/dashboard/approvedContactRequest',
-                element: <ApprovedContactRequest></ApprovedContactRequest>
+                element: <AdminRoute><ApprovedContactRequest></ApprovedContactRequest></AdminRoute>
             },
             {
                 path: '/dashboard/successStory',
-                element: <SuccessStory></SuccessStory>
+                element: <AdminRoute><SuccessStory></SuccessStory></AdminRoute>
             },
             
             

@@ -22,7 +22,6 @@ const ViewBioDataCard = ({ singleData }) => {
             if (result.isConfirmed) {
                 try {
                     const res = await axios.post('/premiumBioData', postData);
-                    console.log(res);
                     if (res.acknowledged === true) {
                         Swal.fire({
                             title: "Your request is accepted.",
@@ -32,7 +31,6 @@ const ViewBioDataCard = ({ singleData }) => {
                     }
                 }
                 catch (error) {
-                    console.log(error);
                     toast.error(error.message)
                 }
             }

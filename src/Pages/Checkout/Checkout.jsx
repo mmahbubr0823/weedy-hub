@@ -5,6 +5,7 @@ import useAxios from "../../Hooks/useAxios/useAxios";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import { useNavigate, useParams } from "react-router-dom";
 import useBioDataDetails from "../../Hooks/useBioDataDetails/useBioDataDetails";
+import Title from "../../Shared/Title/Title";
 const Checkout = () => {
     const { register, handleSubmit, reset } = useForm();
     const axios = useAxios();
@@ -42,6 +43,7 @@ const Checkout = () => {
     }
     return (
         <Container>
+             <Title title={'Check Out'}></Title>
             <div>
                 <h1 className="text-3xl font-semibold text-center mt-10">
                     Wow!! You are looking forward to getting in touch your beloved.

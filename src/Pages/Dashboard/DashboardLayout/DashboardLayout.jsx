@@ -7,6 +7,7 @@ import AdminDashboardItems from '../AdminDashboard/AdminDashboardItems';
 import useAuth from '../../../Hooks/UswAuth/useAuth';
 import useRole from '../../../Hooks/useRole/useRole';
 import { Spinner } from '@material-tailwind/react';
+import Title from '../../../Shared/Title/Title';
 const DashboardLayout = () => {
     const {user, loading} = useAuth();
     const [userRole, isLoading] = useRole(user.email);
@@ -17,6 +18,7 @@ const DashboardLayout = () => {
         <div>
             <Navbar></Navbar>
             <Container>
+            <Title title={'Dashboard'}></Title>
                 <div className=' grid grid-cols-10 gap-3 mt-16'>
                     <div className='col-span-2'>
                         {

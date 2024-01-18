@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { axiosPublic } from '../../../../api';
 import { uploadPhoto } from '../../../../api/photoUpload';
+import Title from '../../../../Shared/Title/Title';
 const GotMarried = () => {
     const { register, handleSubmit, reset } = useForm();
 
@@ -36,6 +37,7 @@ const GotMarried = () => {
     return (
 
         <div>
+             <Title title={'Got Married'}></Title>
             <h1 className='text-2xl font-semibold '>
                 Congratulation for your successful marriage!!
             </h1>

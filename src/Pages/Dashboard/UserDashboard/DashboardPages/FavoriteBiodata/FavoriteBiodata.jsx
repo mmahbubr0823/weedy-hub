@@ -2,6 +2,7 @@ import { Card, Spinner, Typography } from "@material-tailwind/react";
 import  './favorites.css'
 import useAuth from "../../../../../Hooks/UswAuth/useAuth";
 import useFavorites from "../../../../../Hooks/useFavorites/useFavorites";
+import Title from "../../../../../Shared/Title/Title";
 const FavoriteBiodata = () => {
     const {user} = useAuth();
     const [data, isLoading] = useFavorites(user.email);  
@@ -11,6 +12,7 @@ const FavoriteBiodata = () => {
     const TABLE_HEAD = ["#", "Name", "Biodata Id", "Permanent Address", "Occupation", "Action"];
     return (
         <div>
+             <Title title={'Favorite BioData'}></Title>
             {
                 data.length > 0 ?  
             <Card className="min-h-[60vh] w-full p-3 overflow-scroll">

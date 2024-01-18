@@ -5,6 +5,7 @@ import BioDataCard from "./BioDataCard";
 import { useState } from "react";
 import Pagination from "./Pagination";
 import { Spinner } from "@material-tailwind/react";
+import Title from "../../Shared/Title/Title";
 // import { Spinner } from "@material-tailwind/react";
 // import useAuth from "../../Hooks/UswAuth/useAuth";
 
@@ -36,6 +37,7 @@ const AllBioData = () => {
     }
     return (
         <Container>
+             <Title title={'All Members'}></Title>
             <div className="text-center my-10 relative">
                 <h1 className='text-3xl font-bold mb-3'>Find Your B<span className='text-[#ed43f6]'>e</span>lov<span className='text-[#ed43f6]'>e</span>d!</h1>
                 <p className='text-sm text-gray-500'>Find Your Beloved encapsulates the essence of discovering <br /> a cherished life partner. The phrase evokes a sense of deep connection and emphasizes <br /> the journey to finding someone truly special and cherished.</p>

@@ -1,10 +1,12 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import Container from '../../Layouts/Container/Container';
+import Title from '../../Shared/Title/Title';
 
 const ContactUs = () => {
     return (
         <div>
             <Container>
+            <Title title={'Contact Us'}></Title>
                 <div className="my-10 space-y-6">
                     <section>
                         <h1 className="text-3xl font-bold text-center mb-2">

@@ -4,6 +4,7 @@ import { PieChart, Pie, Tooltip, Legend, Cell } from 'recharts';
 
 import usePremium from '../../../Hooks/usePremium/usePremium';
 import { Spinner } from '@material-tailwind/react';
+import Title from '../../../Shared/Title/Title';
 const AdminDashboard = () => {
     const [data] = useBioData();
     const [premiumUser] = usePremium();
@@ -28,6 +29,7 @@ const AdminDashboard = () => {
     const colors = ['green', 'brown', 'blue', 'orange'];
     return (
         <div>
+             <Title title={'Admin Dashboard'}></Title>
             <h1 className='text-3xl text-center font-semibold mb-5'>Bio Data stat at a glance:</h1>
             <PieChart width={400} height={400}>
                 <Pie

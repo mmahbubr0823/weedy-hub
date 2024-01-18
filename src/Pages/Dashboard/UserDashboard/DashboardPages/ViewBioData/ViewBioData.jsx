@@ -3,6 +3,7 @@ import useBioData from "../../../../../Hooks/useBioData/useBioData";
 import useAuth from "../../../../../Hooks/UswAuth/useAuth";
 import ViewBioDataCard from "./ViewBioDataCard";
 import { Spinner } from "@material-tailwind/react";
+import Title from "../../../../../Shared/Title/Title";
 
 const ViewBioData = () => {
     const [data, isLoading] = useBioData();
@@ -17,6 +18,7 @@ const ViewBioData = () => {
     }
     return (
         <div>
+             <Title title={'View BioData'}></Title>
                 <div>
                     {
                         viewData.map((singleData, idx) => <ViewBioDataCard
