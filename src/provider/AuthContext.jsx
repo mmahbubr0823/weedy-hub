@@ -48,21 +48,23 @@ const AuthContext = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
+            setUser(currentUser);
+            const userEmail = currentUser?.email || user?.email;
             setLoading(false);
-            const loggedUser = currentUser.email
             if (currentUser) {
-                const fetchData = async() => {
-                    const res = await axiosPublic.post('/jwt', {loggedUser});
-                    console.log(currentUser, res.data);
+                const fetchData = async () => {
+                    const res = await axiosPublic.post('/jwt', { loggedUser: userEmail });
+                    console.log('token:', res.data);
                 }
                 fetchData();
-
             }
-            else{
-                const fetchData = async() => {
-                    const res = await axiosPublic.post('/logout', {loggedUser});
-                    console.log(currentUser, res.data);
+
+            else {
+                const fetchData = async () => {
+                    const res = await axiosPublic.post('/logout', {
+                        loggedUser: userEmail
+                    });
+                    console.log('res:', res.data);
                 }
                 fetchData();
             }
