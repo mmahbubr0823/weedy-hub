@@ -8,12 +8,6 @@ const Pagination = ({ setFilteredMembers }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [count, setCount] = useState(50);
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/members?page=${currentPage}&size=${itemsPerPage}`)
-    //         .then(res => res.json())
-    //         .then(data => setFilteredMembers(data))
-    // }, [currentPage, itemsPerPage, setFilteredMembers]);
-
     useEffect(() => {
         const fetchData = async () => {
             const { data } = await axiosPublic.get(`/members?page=${currentPage}&size=${itemsPerPage}`);
