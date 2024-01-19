@@ -2,7 +2,7 @@ import axios from "axios";
 import useAuth from "../Hooks/UswAuth/useAuth";
 
 export const axiosPublic = axios.create({
-    baseURL: 'https://assignment-12-server-eta-five.vercel.app',
+    baseURL: 'http://localhost:5000',
     withCredentials: true
 })
 axiosPublic.interceptors.response.use(

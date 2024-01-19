@@ -8,7 +8,7 @@ const usePremium = () => {
             return res.data;
         }
     })
-    return [premiumUser, isLoading ];
+    return [premiumUser, isLoading, refetch ];
 };
 
 export default usePremium;

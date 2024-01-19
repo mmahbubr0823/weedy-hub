@@ -2,10 +2,12 @@ import { Button } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useAxios from "../../../../../Hooks/useAxios/useAxios";
+import useRole from "../../../../../Hooks/useRole/useRole";
 
 const ViewBioDataCard = ({ singleData }) => {
     const axios = useAxios();
     const { BiodataId, BiodataType, Name, ProfileImage, DateOfBirth, Height, Weight, Age, Occupation, Race, FathersName, MothersName, PermanentDivisionName, PresentDivisionName, ContactEmail, MobileNumber } = singleData;
+    const[userRole] = useRole(ContactEmail);
     const postData = {
         ...singleData
     }
@@ -62,9 +64,12 @@ const ViewBioDataCard = ({ singleData }) => {
                     </div>
 
                 </div>
+                {
+                    userRole.role === 'randomUser' && 
                 <div>
                     <Button onClick={handlePremium} className="bg-[#ec2dc9] w-full text-white" variant="outlined">Make Premium</Button>
                 </div>
+                }
             </div>
         </div>
     );
