@@ -4,16 +4,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import { saveUser } from "../../api/allApi";
 const SocialLogin = () => {
-    const { googleLogIn, user } = useAuth();
+    const { googleLogIn } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     // social log in 
     const handleGoogleLogin = async () => {
         try {
             // login by Google
-            await googleLogIn();
+           const res = await googleLogIn();
             // save user in db 
-            await saveUser(user);
+            await saveUser(res.user);
             toast.success('User successfully logged in');
             navigate(location?.state ? location.state : '/');
         }

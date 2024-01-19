@@ -1,9 +1,9 @@
 import { axiosPublic } from ".";
 export const saveUser = async (user) => {
     const currentUser = {
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
+        name: user?.displayName,
+        email: user?.email,
+        photo: user?.photoURL,
         role: 'randomUser',
         status: 'Verified',
     }
