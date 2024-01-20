@@ -16,10 +16,9 @@ const ManageUsers = () => {
         return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
     }
     // make admin 
-     const handleAdmin= async(name, email, photo, role, status)=>{
-        const userData = {name, email, photo, role, status}
+     const handleAdmin= async(email)=>{
         try{
-            const {data} = await axiosPublic.patch(`/users/makeAdmin/${email}`, userData);
+            const {data} = await axiosPublic.patch(`/users/makeAdmin/${email}`);
             refetch();
             if (data.acknowledged === true) {
                 Swal.fire({
@@ -34,10 +33,9 @@ const ManageUsers = () => {
         }
      }
     //  make premium 
-     const handlePremium= async(name, email, photo, role, status)=>{
-        const userData = {name, email, photo, role, status}
+     const handlePremium= async(email)=>{
         try{
-            const {data} = await axiosPublic.patch(`/users/makePremium/${email}`, userData);
+            const {data} = await axiosPublic.patch(`/users/makePremium/${email}`);
             refetch();
             if (data.acknowledged === true) {
                 Swal.fire({
@@ -72,7 +70,7 @@ const ManageUsers = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {user.map(({ name, email , photo, role, status}, index) => (
+                    {user.map(({ name, email , role}, index) => (
                         <tr key={name} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-medium">
@@ -92,12 +90,12 @@ const ManageUsers = () => {
                             <td className="p-4">
                                 <Typography as="a" variant="small" color="blue-gray" className="font-medium">
                                   
-                                  <button disabled={role=== 'admin'} onClick={()=>handleAdmin(name, email, photo, role, status)} className='bg-[#ed1ddc] px-3 py-2 rounded-md text-white'>Make Admin</button>
+                                  <button disabled={role=== 'admin'} onClick={()=>handleAdmin(email)} className='bg-[#ed1ddc] px-3 py-2 rounded-md text-white'>Make Admin</button>
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography as="a" variant="small" color="blue-gray" className="font-medium">
-                                  <button disabled={role=== 'premium'} onClick={()=>handlePremium(name, email, photo, role, status)} className='bg-[#6053e8] px-3 py-2 rounded-md text-white'>Make Premium</button>
+                                  <button disabled={role=== 'premium'} onClick={()=>handlePremium(email)} className='bg-[#6053e8] px-3 py-2 rounded-md text-white'>Make Premium</button>
                                 </Typography>
                             </td>
                         </tr>

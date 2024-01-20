@@ -2,12 +2,11 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import useAuth from '../../../../../Hooks/UswAuth/useAuth';
-import useAxios from '../../../../../Hooks/useAxios/useAxios';
 import Title from '../../../../../Shared/Title/Title';
+import { axiosPublic } from '../../../../../api';
 const EditBiodata = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
-    const insertData = useAxios();
     const onSubmit = async (data) => {
         const image = data.ProfileImage[0];
         const imgForm = new FormData();
@@ -19,7 +18,7 @@ const EditBiodata = () => {
             const formData = {
                 ...data, ProfileImage
             }
-            const postData = await insertData.put(`/members/65660193b9deaed4463a71be`, formData)
+            const postData = await axiosPublic.put(`/editBioData/${user.email}`, formData)
             if (postData.data.acknowledged === true) {
                 Swal.fire({
                     title: "",
@@ -32,7 +31,7 @@ const EditBiodata = () => {
         catch (error) {
             Swal.fire({
                 title: "",
-                text: {error},
+                text: { error },
                 icon: "error"
             });
         }
@@ -44,9 +43,9 @@ const EditBiodata = () => {
     const races = ['Islam', 'Hindu', 'Christian', 'Bhuddist'];
     return (
         <div>
-             <Title title={'Edit BioData'}></Title>
+            <Title title={'Edit BioData'}></Title>
             <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-md p-5 mb-2">
-            <h1 className='text-2xl font-semibold text-center my-6'>Please fill out this form</h1>
+                <h1 className='text-2xl font-semibold text-center my-6'>Please fill out this form</h1>
 
                 <div className="grid grid-cols-2 gap-6">
 
@@ -273,7 +272,7 @@ const EditBiodata = () => {
                 </div>
 
                 <input
-                    className=" mt-6 block w-3/4 mx-auto select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    className=" mt-6 block cursor-pointer w-3/4 mx-auto select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="submit" value="Save and Publish Now" />
             </form>
         </div>

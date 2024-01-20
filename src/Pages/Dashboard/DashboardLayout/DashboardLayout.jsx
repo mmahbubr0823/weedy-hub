@@ -11,6 +11,7 @@ import Title from '../../../Shared/Title/Title';
 const DashboardLayout = () => {
     const {user, loading} = useAuth();
     const [userRole, isLoading] = useRole(user.email);
+    console.log(useRole);
     if (isLoading || loading) {
         return <Spinner className="h-16 w-16 text-gray-900/50 mx-auto my-10" />
     }

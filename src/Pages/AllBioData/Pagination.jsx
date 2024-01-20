@@ -40,7 +40,7 @@ const Pagination = ({ setFilteredMembers }) => {
     }
 
     return (
-        <div className=" text-center">
+        <div className=" text-center mt-10">
             <div>
                 <Button onClick={handlePrev} disabled={currentPage === 0} className="text-black mr-3 bg-[#f97bd7]">Prev</Button>
                 {

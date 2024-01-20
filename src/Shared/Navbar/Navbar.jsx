@@ -6,11 +6,11 @@ const Navbar = () => {
     const { user, logOut } = useAuth();
     const handleSignOut = async () => {
         try {
-            await logOut()
-            toast.success('User successfully signed out')
+            await logOut();
+            toast.success('User successfully signed out');
         }
         catch (err){
-            toast.error('Something went wrong')
+            toast.error('Something went wrong');
         }
     }
 const navItems = <>
