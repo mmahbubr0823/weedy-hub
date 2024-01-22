@@ -3,7 +3,7 @@ import { Button, Spinner } from "@material-tailwind/react";
 import useAuth from "../../Hooks/UswAuth/useAuth";
 import { axiosPublic } from "../../api";
 
-const Pagination = ({ setFilteredMembers }) => {
+const Pagination = ({ setFilteredMembers}) => {
     const { loading } = useAuth()
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -38,7 +38,6 @@ const Pagination = ({ setFilteredMembers }) => {
     const handleNext = () => {
         setCurrentPage(currentPage + 1);
     }
-
     return (
         <div className=" text-center mt-10">
             <div>

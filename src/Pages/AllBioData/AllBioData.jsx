@@ -6,11 +6,7 @@ import { useState } from "react";
 import Pagination from "./Pagination";
 import { Spinner } from "@material-tailwind/react";
 import Title from "../../Shared/Title/Title";
-// import { Spinner } from "@material-tailwind/react";
-// import useAuth from "../../Hooks/UswAuth/useAuth";
-
 const AllBioData = () => {
-    // const { loading } = useAuth();
     const [data, isLoading] = useBioData();
     const [filteredMembers, setFilteredMembers] = useState(data);
     const { register, handleSubmit} = useForm();
